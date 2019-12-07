@@ -8,7 +8,13 @@
 
 import UIKit
 
+protocol AddCurrencyTVCDelegate: class {
+    func added(currency: String)
+}
+
 class AddCurrencyTVC: BaseTVC {
+    
+    weak var delegate: AddCurrencyTVCDelegate?
 
     let currencyList = [
            "AUD",
@@ -69,5 +75,8 @@ extension AddCurrencyTVC {
 extension AddCurrencyTVC {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        delegate?.added(currency: currencyList[indexPath.row])
+        self.dismiss(animated: true) {
+        }
     }
 }

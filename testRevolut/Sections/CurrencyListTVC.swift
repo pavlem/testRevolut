@@ -12,12 +12,29 @@ class CurrencyListTVC: BaseTVC {
     
     // MARK: - API
     var currencyList = [String]()
+    
+    // MARK: - Properties
+    // MARK: Outlets
+    @IBOutlet weak var addCurrencyBtn: AddBtn!
+    @IBOutlet weak var addCurrencyTxtBtn: UIButton!
+    // MARK: Calculated
+    private var currencyVC: CurrencyVC? {
+        return self.parent as? CurrencyVC
+    }
 
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        
     }
 
+    // MARK: - Actions
+    @IBAction func addCurrency(_ sender: Any) {
+//        print("Add.....")
+        let addCurrencyTVC = UIStoryboard.addCurrencyTVC
+        addCurrencyTVC.delegate = self
+        present(addCurrencyTVC, animated: true) {}
+    }
     // MARK: - Helper
 }
 
@@ -31,5 +48,13 @@ extension CurrencyListTVC {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CurrencyListCell_ID", for: indexPath)
         cell.textLabel?.text = currencyList[indexPath.row]
         return cell
+    }
+}
+
+// MARK: - AddCurrencyTVCDelegate
+extension CurrencyListTVC: AddCurrencyTVCDelegate {
+    func added(currency: String) {
+        print("CurrencyListTVC_AddCurrencyTVCDelegate")
+        currencyVC?.added(currency: currency)
     }
 }

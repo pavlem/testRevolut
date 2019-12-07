@@ -24,14 +24,29 @@ class CurrencyVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        currencyListTVCContainer.isHidden = currencyListTVC?.currencyList.count == 0 ? true : false
+        setCurrencyListTVCContainer()
     }
-    
+
     // MARK: - Actions
     @IBAction func addCurrency(_ sender: Any) {
-        print("Add.....")
-        self.present(UIStoryboard.addCurrencyTVC, animated: true) {}
+//        print("Add.....")
+        let addCurrencyTVC = UIStoryboard.addCurrencyTVC
+        addCurrencyTVC.delegate = self
+        self.present(addCurrencyTVC, animated: true) {}
     }
     
     // MARK: - Helper
+    private func setCurrencyListTVCContainer() {
+        currencyListTVCContainer.isHidden = currencyListTVC?.currencyList.count == 0 ? true : false
+    }
+}
+
+// MARK: - AddCurrencyTVCDelegate
+extension CurrencyVC: AddCurrencyTVCDelegate {
+    func added(currency: String) {
+        print("CurrencyVC_AddCurrencyTVCDelegate")
+        currencyListTVC?.currencyList.append(currency)
+        currencyListTVC?.tableView.reloadData()
+        setCurrencyListTVCContainer()
+    }
 }
