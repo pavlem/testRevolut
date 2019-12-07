@@ -1,15 +1,15 @@
 //
-//  testRevoultTests.swift
-//  testRevoultTests
+//  testRevolutTests.swift
+//  testRevolutTests
 //
 //  Created by Pavle Mijatovic on 07/12/2019.
 //  Copyright © 2019 Pavle Mijatovic. All rights reserved.
 //
 
 import XCTest
-@testable import testRevoult
+@testable import testRevolut
 
-class testRevoultTests: XCTestCase {
+class testRevolutTests: XCTestCase {
 
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.

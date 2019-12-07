@@ -1,6 +1,6 @@
 //
-//  testRevoultUITests.swift
-//  testRevoultUITests
+//  testRevolutUITests.swift
+//  testRevolutUITests
 //
 //  Created by Pavle Mijatovic on 07/12/2019.
 //  Copyright © 2019 Pavle Mijatovic. All rights reserved.
@@ -8,7 +8,7 @@
 
 import XCTest
 
-class testRevoultUITests: XCTestCase {
+class testRevolutUITests: XCTestCase {
 
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
