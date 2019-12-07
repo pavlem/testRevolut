@@ -101,10 +101,10 @@
 		8E238F32239BCF0A00C920D0 /* testRevolut */ = {
 			isa = PBXGroup;
 			children = (
-				8E238F74239BD29400C920D0 /* Components */,
 				8E238F70239BCFF800C920D0 /* App */,
-				8E238F63239BCF4B00C920D0 /* Resources */,
+				8E238F74239BD29400C920D0 /* Components */,
 				8E238F71239BD02A00C920D0 /* Sections */,
+				8E238F63239BCF4B00C920D0 /* Resources */,
 			);
 			path = testRevolut;
 			sourceTree = "<group>";

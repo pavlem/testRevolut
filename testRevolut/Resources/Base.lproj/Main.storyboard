@@ -18,6 +18,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c4h-Ia-PLl">
                                 <rect key="frame" x="146" y="412" width="122" height="30"/>
                                 <state key="normal" title="Add currency pair"/>
+                                <connections>
+                                    <action selector="addCurrency:" destination="BYZ-38-t0r" eventType="touchUpInside" id="eBJ-zP-k2U"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NsK-2n-7Br" customClass="AddBtn" customModule="testRevolut" customModuleProvider="target">
                                 <rect key="frame" x="167" y="324" width="80" height="80"/>
@@ -30,6 +33,9 @@
                                 <state key="normal" title="+">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="addCurrency:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5h3-Pg-OHZ"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose currency pair to compare their live rate" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pmg-hl-v8q">
                                 <rect key="frame" x="50" y="450" width="314" height="36"/>
@@ -51,6 +57,11 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="addCurrencyBtn" destination="NsK-2n-7Br" id="uR7-aa-Krb"/>
+                        <outlet property="addCurrencyInfoLbl" destination="Pmg-hl-v8q" id="1QW-yp-I7J"/>
+                        <outlet property="addCurrencyTxtBtn" destination="c4h-Ia-PLl" id="b5P-Qv-Y7o"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
