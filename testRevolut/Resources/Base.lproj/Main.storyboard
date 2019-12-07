@@ -7,10 +7,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Add CurrencyVC-->
+        <!--CurrencyVC-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="AddCurrencyVC" customModule="testRevolut" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="CurrencyVC" customModule="testRevolut" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -71,6 +71,7 @@
                         <outlet property="addCurrencyBtn" destination="NsK-2n-7Br" id="uR7-aa-Krb"/>
                         <outlet property="addCurrencyInfoLbl" destination="Pmg-hl-v8q" id="1QW-yp-I7J"/>
                         <outlet property="addCurrencyTxtBtn" destination="c4h-Ia-PLl" id="b5P-Qv-Y7o"/>
+                        <outlet property="currencyListTVCContainer" destination="aVH-56-vlt" id="5RA-EO-lRD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -104,6 +105,35 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DUj-Ke-qtq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="839" y="138"/>
+        </scene>
+        <!--Add CurrencyTVC-->
+        <scene sceneID="Z9W-fX-qeH">
+            <objects>
+                <tableViewController storyboardIdentifier="AddCurrencyTVC_ID" id="6JW-qm-2NS" customClass="AddCurrencyTVC" customModule="testRevolut" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="NTD-fe-3Y6">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="AddCurrencyCell_ID" rowHeight="62" id="YmQ-k4-O8J">
+                                <rect key="frame" x="0.0" y="28" width="414" height="62"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="YmQ-k4-O8J" id="db6-2f-yxy">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="62"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="6JW-qm-2NS" id="fhj-Dd-NW8"/>
+                            <outlet property="delegate" destination="6JW-qm-2NS" id="spF-Ln-QjF"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="Vq4-Bt-lWR"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4QN-tb-4Mq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="145" y="856"/>
         </scene>
     </scenes>
 </document>

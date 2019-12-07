@@ -14,10 +14,12 @@
 		8E238F56239BCF0B00C920D0 /* testRevolutUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E238F55239BCF0B00C920D0 /* testRevolutUITests.swift */; };
 		8E238F6E239BCFE100C920D0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8E238F6A239BCFE100C920D0 /* LaunchScreen.storyboard */; };
 		8E238F6F239BCFE100C920D0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8E238F6C239BCFE100C920D0 /* Main.storyboard */; };
-		8E238F73239BD05200C920D0 /* AddCurrencyVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E238F72239BD05200C920D0 /* AddCurrencyVC.swift */; };
+		8E238F73239BD05200C920D0 /* CurrencyVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E238F72239BD05200C920D0 /* CurrencyVC.swift */; };
 		8E238F76239BD2B200C920D0 /* AddBtn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E238F75239BD2B200C920D0 /* AddBtn.swift */; };
 		8E238F78239BD5FB00C920D0 /* CurrencyListTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E238F77239BD5FB00C920D0 /* CurrencyListTVC.swift */; };
 		8E238F7A239BD60700C920D0 /* AddCurrencyTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E238F79239BD60700C920D0 /* AddCurrencyTVC.swift */; };
+		8E238F7C239BD80A00C920D0 /* BaseTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E238F7B239BD80A00C920D0 /* BaseTVC.swift */; };
+		8E238F7F239BDA4100C920D0 /* UIStoryboard+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E238F7E239BDA4100C920D0 /* UIStoryboard+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,10 +53,12 @@
 		8E238F57239BCF0B00C920D0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8E238F6B239BCFE100C920D0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8E238F6D239BCFE100C920D0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		8E238F72239BD05200C920D0 /* AddCurrencyVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCurrencyVC.swift; sourceTree = "<group>"; };
+		8E238F72239BD05200C920D0 /* CurrencyVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyVC.swift; sourceTree = "<group>"; };
 		8E238F75239BD2B200C920D0 /* AddBtn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBtn.swift; sourceTree = "<group>"; };
 		8E238F77239BD5FB00C920D0 /* CurrencyListTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyListTVC.swift; sourceTree = "<group>"; };
 		8E238F79239BD60700C920D0 /* AddCurrencyTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCurrencyTVC.swift; sourceTree = "<group>"; };
+		8E238F7B239BD80A00C920D0 /* BaseTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTVC.swift; sourceTree = "<group>"; };
+		8E238F7E239BDA4100C920D0 /* UIStoryboard+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStoryboard+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +113,7 @@
 				8E238F74239BD29400C920D0 /* Components */,
 				8E238F71239BD02A00C920D0 /* Sections */,
 				8E238F63239BCF4B00C920D0 /* Resources */,
+				8E238F7D239BDA1900C920D0 /* Lib */,
 			);
 			path = testRevolut;
 			sourceTree = "<group>";
@@ -154,7 +159,7 @@
 		8E238F71239BD02A00C920D0 /* Sections */ = {
 			isa = PBXGroup;
 			children = (
-				8E238F72239BD05200C920D0 /* AddCurrencyVC.swift */,
+				8E238F72239BD05200C920D0 /* CurrencyVC.swift */,
 				8E238F77239BD5FB00C920D0 /* CurrencyListTVC.swift */,
 				8E238F79239BD60700C920D0 /* AddCurrencyTVC.swift */,
 			);
@@ -165,8 +170,17 @@
 			isa = PBXGroup;
 			children = (
 				8E238F75239BD2B200C920D0 /* AddBtn.swift */,
+				8E238F7B239BD80A00C920D0 /* BaseTVC.swift */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		8E238F7D239BDA1900C920D0 /* Lib */ = {
+			isa = PBXGroup;
+			children = (
+				8E238F7E239BDA4100C920D0 /* UIStoryboard+Extension.swift */,
+			);
+			path = Lib;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -301,10 +315,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				8E238F76239BD2B200C920D0 /* AddBtn.swift in Sources */,
-				8E238F73239BD05200C920D0 /* AddCurrencyVC.swift in Sources */,
+				8E238F7C239BD80A00C920D0 /* BaseTVC.swift in Sources */,
+				8E238F73239BD05200C920D0 /* CurrencyVC.swift in Sources */,
 				8E238F7A239BD60700C920D0 /* AddCurrencyTVC.swift in Sources */,
 				8E238F34239BCF0A00C920D0 /* AppDelegate.swift in Sources */,
 				8E238F36239BCF0A00C920D0 /* SceneDelegate.swift in Sources */,
+				8E238F7F239BDA4100C920D0 /* UIStoryboard+Extension.swift in Sources */,
 				8E238F78239BD5FB00C920D0 /* CurrencyListTVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
