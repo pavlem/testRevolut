@@ -38,20 +38,30 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose currency pair to compare their live rate" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pmg-hl-v8q">
-                                <rect key="frame" x="50" y="450" width="314" height="36"/>
+                                <rect key="frame" x="73" y="450" width="268" height="36"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" red="0.47840499879999998" green="0.47844964270000001" blue="0.47836768629999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <containerView hidden="YES" opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aVH-56-vlt">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <connections>
+                                    <segue destination="lC9-aJ-XGR" kind="embed" id="LUV-07-LGL"/>
+                                </connections>
+                            </containerView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="aVH-56-vlt" secondAttribute="bottom" id="88g-Zy-cx9"/>
                             <constraint firstItem="NsK-2n-7Br" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="8VZ-9X-t88"/>
                             <constraint firstItem="Pmg-hl-v8q" firstAttribute="top" secondItem="c4h-Ia-PLl" secondAttribute="bottom" constant="8" id="94W-TX-Jk4"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="aVH-56-vlt" secondAttribute="trailing" id="AkQ-VM-qtQ"/>
                             <constraint firstItem="Pmg-hl-v8q" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="TVI-HO-NDB"/>
+                            <constraint firstItem="aVH-56-vlt" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="aAa-ab-uJb"/>
                             <constraint firstItem="NsK-2n-7Br" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" constant="-89" id="heb-ec-ib7"/>
-                            <constraint firstItem="Pmg-hl-v8q" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="50" id="iiL-TQ-MQ6"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Pmg-hl-v8q" secondAttribute="trailing" constant="50" id="xCZ-Np-SQS"/>
+                            <constraint firstItem="Pmg-hl-v8q" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="50" id="iiL-TQ-MQ6"/>
+                            <constraint firstItem="aVH-56-vlt" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="pDp-lt-gdo"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Pmg-hl-v8q" secondAttribute="trailing" constant="50" id="xCZ-Np-SQS"/>
                             <constraint firstItem="c4h-Ia-PLl" firstAttribute="top" secondItem="NsK-2n-7Br" secondAttribute="bottom" constant="8" id="zfb-9x-tir"/>
                             <constraint firstItem="c4h-Ia-PLl" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="zo5-k7-J4M"/>
                         </constraints>
@@ -66,6 +76,34 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="131.8840579710145" y="137.94642857142856"/>
+        </scene>
+        <!--Currency ListTVC-->
+        <scene sceneID="ovf-BD-ozC">
+            <objects>
+                <tableViewController id="lC9-aJ-XGR" customClass="CurrencyListTVC" customModule="testRevolut" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="dMF-HA-hl7">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="818"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CurrencyListCell_ID" id="LAX-P7-fYy">
+                                <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="LAX-P7-fYy" id="8gU-aR-POz">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="lC9-aJ-XGR" id="hEH-2O-GGb"/>
+                            <outlet property="delegate" destination="lC9-aJ-XGR" id="b35-ZY-4uR"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DUj-Ke-qtq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="839" y="138"/>
         </scene>
     </scenes>
 </document>
