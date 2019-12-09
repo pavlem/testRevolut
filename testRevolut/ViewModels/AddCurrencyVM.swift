@@ -12,6 +12,7 @@ struct AddCurrencyVM {
     let shortName: String
     let longName: String
     let countryIcon: UIImage
+    var isEnabled = true
 }
 
 extension AddCurrencyVM {

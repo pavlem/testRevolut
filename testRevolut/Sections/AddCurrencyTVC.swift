@@ -17,6 +17,9 @@ class AddCurrencyTVC: BaseTVC {
     weak var delegate: AddCurrencyTVCDelegate?
 
     var isFirstCurrency = false
+    
+    var selectedCurr: String?
+    
     // MARK: - Properties
     private let addCurrencyVMs = AddCurrencyVM.getCurrenciesVMs()
     
@@ -36,7 +39,13 @@ extension AddCurrencyTVC {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let addCurrencyCell = tableView.dequeueReusableCell(withIdentifier: "AddCurrencyCell_ID", for: indexPath) as? AddCurrencyCell else { return UITableViewCell() }
-        addCurrencyCell.addCurrencyVM = addCurrencyVMs[indexPath.row]
+        
+        var addCurrencyVM = addCurrencyVMs[indexPath.row]
+
+        if addCurrencyVM.shortName == self.selectedCurr {
+            addCurrencyVM.isEnabled = false
+        }
+        addCurrencyCell.addCurrencyVM = addCurrencyVM
         return addCurrencyCell
     }
 }
@@ -49,6 +58,7 @@ extension AddCurrencyTVC {
         if isFirstCurrency {
             let addCurrencyTVC = UIStoryboard.addCurrencyTVC
             addCurrencyTVC.delegate = self.delegate
+            addCurrencyTVC.selectedCurr = addCurrencyVMs[indexPath.row].shortName
             navigationController?.pushViewController(addCurrencyTVC, animated: true)
             return
         }

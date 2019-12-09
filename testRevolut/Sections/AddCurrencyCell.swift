@@ -37,6 +37,7 @@ class AddCurrencyCell: UITableViewCell {
         currencyShortLbl.font = currencyLongLbl.font
         currencyLongLbl.textColor = .black
         currencyShortLbl.textColor = .darkGray
+        
     }
        
     private func setUI(addCurrencyVM: AddCurrencyVM?) {
@@ -44,5 +45,15 @@ class AddCurrencyCell: UITableViewCell {
         currencyShortLbl.text = addCurrencyVM?.shortName
         currencyImg.image = addCurrencyVM?.countryIcon
         currencyImg.contentMode = .scaleAspectFill
+        
+        if addCurrencyVM?.isEnabled == false {
+            setDisabledMode()
+        }
+    }
+    
+    private func setDisabledMode() {
+        self.isUserInteractionEnabled = false
+        currencyLongLbl.alpha = 0.5
+        currencyShortLbl.alpha = 0.5
     }
 }
