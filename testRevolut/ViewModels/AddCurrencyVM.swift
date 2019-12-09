@@ -17,7 +17,7 @@ struct AddCurrencyVM {
 extension AddCurrencyVM {
     static func getCurrenciesVMs() -> [AddCurrencyVM] {
         
-        let ff = JSONHelper.fetchCountries { (_, _) in
+        let _ = JSONHelper.fetchCountries { (_, _) in
             
         }
         

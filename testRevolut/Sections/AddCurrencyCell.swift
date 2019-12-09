@@ -17,26 +17,14 @@ class AddCurrencyCell: UITableViewCell {
         }
     }
     
+    // MARK: - Properties
     @IBOutlet weak var currencyImg: UIImageView!
     @IBOutlet weak var currencyLongLbl: UILabel!
     @IBOutlet weak var currencyShortLbl: UILabel!
     
+    // MARK: - Helper
     private func setUI(addCurrencyVM: AddCurrencyVM?) {
         currencyLongLbl.text = addCurrencyVM?.longName
         currencyShortLbl.text = addCurrencyVM?.shortName
     }
-    
-    
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-
 }
