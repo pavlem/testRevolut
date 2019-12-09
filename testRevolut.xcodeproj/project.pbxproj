@@ -774,6 +774,7 @@
 		8E1C261D239E858300FA7CF0 /* CU@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8E1C2320239E858300FA7CF0 /* CU@2x.png */; };
 		8E1C261E239E858300FA7CF0 /* TJ.png in Resources */ = {isa = PBXBuildFile; fileRef = 8E1C2321239E858300FA7CF0 /* TJ.png */; };
 		8E1C261F239E858300FA7CF0 /* BM@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8E1C2322239E858300FA7CF0 /* BM@3x.png */; };
+		8E1C2621239E8DFC00FA7CF0 /* JSONHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E1C2620239E8DFC00FA7CF0 /* JSONHelper.swift */; };
 		8E1CC2EF239E71DD00E3FF2E /* AddCurrencyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E1CC2EE239E71DD00E3FF2E /* AddCurrencyCell.swift */; };
 		8E1CC2F1239E738600E3FF2E /* AddCurrencyVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E1CC2F0239E738600E3FF2E /* AddCurrencyVM.swift */; };
 		8E238F34239BCF0A00C920D0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E238F33239BCF0A00C920D0 /* AppDelegate.swift */; };
@@ -1576,6 +1577,7 @@
 		8E1C2320239E858300FA7CF0 /* CU@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "CU@2x.png"; sourceTree = "<group>"; };
 		8E1C2321239E858300FA7CF0 /* TJ.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TJ.png; sourceTree = "<group>"; };
 		8E1C2322239E858300FA7CF0 /* BM@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "BM@3x.png"; sourceTree = "<group>"; };
+		8E1C2620239E8DFC00FA7CF0 /* JSONHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONHelper.swift; sourceTree = "<group>"; };
 		8E1CC2EE239E71DD00E3FF2E /* AddCurrencyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCurrencyCell.swift; sourceTree = "<group>"; };
 		8E1CC2F0239E738600E3FF2E /* AddCurrencyVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCurrencyVM.swift; sourceTree = "<group>"; };
 		8E238F30239BCF0A00C920D0 /* testRevolut.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = testRevolut.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -2510,6 +2512,7 @@
 			isa = PBXGroup;
 			children = (
 				8E238F7E239BDA4100C920D0 /* UIStoryboard+Extension.swift */,
+				8E1C2620239E8DFC00FA7CF0 /* JSONHelper.swift */,
 			);
 			path = Lib;
 			sourceTree = "<group>";
@@ -3420,6 +3423,7 @@
 				8E238F34239BCF0A00C920D0 /* AppDelegate.swift in Sources */,
 				8E238F36239BCF0A00C920D0 /* SceneDelegate.swift in Sources */,
 				8E238F7F239BDA4100C920D0 /* UIStoryboard+Extension.swift in Sources */,
+				8E1C2621239E8DFC00FA7CF0 /* JSONHelper.swift in Sources */,
 				8E238F78239BD5FB00C920D0 /* CurrencyListTVC.swift in Sources */,
 				8E1CC2EF239E71DD00E3FF2E /* AddCurrencyCell.swift in Sources */,
 			);
