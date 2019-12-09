@@ -29,13 +29,13 @@ class CurrencyListTVC: BaseTVC {
 
     // MARK: - Actions
     @IBAction func addCurrency(_ sender: Any) {
-//        print("Add.....")
         let addCurrencyTVC = UIStoryboard.addCurrencyTVC
-        addCurrencyTVC.modalPresentationStyle = .fullScreen
         addCurrencyTVC.delegate = self
-        present(addCurrencyTVC, animated: true) {}
+        addCurrencyTVC.modalPresentationStyle = .fullScreen
+        let nc = UINavigationController(rootViewController: addCurrencyTVC)
+        nc.modalPresentationStyle = .fullScreen
+        present(nc, animated: true) {}
     }
-    // MARK: - Helper
 }
 
 // MARK: - Table view data source
