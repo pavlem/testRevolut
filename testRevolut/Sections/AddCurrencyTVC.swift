@@ -16,14 +16,16 @@ class AddCurrencyTVC: BaseTVC {
     
     weak var delegate: AddCurrencyTVCDelegate?
 
+    var isFirstCurrency = false
     // MARK: - Properties
     private let addCurrencyVMs = AddCurrencyVM.getCurrenciesVMs()
     
     // MARK: - Lifecycle
-//    override func viewDidLoad() {
-//        super.viewDidLoad()
-//
-//    }
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        navigationController?.isNavigationBarHidden = true
+    }
 }
 
 // MARK: - Table view data source
@@ -43,6 +45,14 @@ extension AddCurrencyTVC {
 extension AddCurrencyTVC {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        
+        if isFirstCurrency {
+            let addCurrencyTVC = UIStoryboard.addCurrencyTVC
+            addCurrencyTVC.delegate = self.delegate
+            navigationController?.pushViewController(addCurrencyTVC, animated: true)
+            return
+        }
+        
         delegate?.added(currency: addCurrencyVMs[indexPath.row].shortName)
         self.dismiss(animated: true) {}
     }

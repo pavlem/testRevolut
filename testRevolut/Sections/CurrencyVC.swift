@@ -32,6 +32,7 @@ class CurrencyVC: UIViewController {
         let addCurrencyTVC = UIStoryboard.addCurrencyTVC
         addCurrencyTVC.delegate = self
         addCurrencyTVC.modalPresentationStyle = .fullScreen
+        addCurrencyTVC.isFirstCurrency = true
         let nc = UINavigationController(rootViewController: addCurrencyTVC)
         nc.modalPresentationStyle = .fullScreen
         present(nc, animated: true) {}
