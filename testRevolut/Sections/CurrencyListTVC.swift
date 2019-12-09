@@ -25,13 +25,13 @@ class CurrencyListTVC: BaseTVC {
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
     }
 
     // MARK: - Actions
     @IBAction func addCurrency(_ sender: Any) {
 //        print("Add.....")
         let addCurrencyTVC = UIStoryboard.addCurrencyTVC
+        addCurrencyTVC.modalPresentationStyle = .fullScreen
         addCurrencyTVC.delegate = self
         present(addCurrencyTVC, animated: true) {}
     }
@@ -54,7 +54,6 @@ extension CurrencyListTVC {
 // MARK: - AddCurrencyTVCDelegate
 extension CurrencyListTVC: AddCurrencyTVCDelegate {
     func added(currency: String) {
-        print("CurrencyListTVC_AddCurrencyTVCDelegate")
         currencyVC?.added(currency: currency)
     }
 }

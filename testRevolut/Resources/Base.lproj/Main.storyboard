@@ -157,13 +157,48 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="AddCurrencyCell_ID" rowHeight="62" id="YmQ-k4-O8J">
-                                <rect key="frame" x="0.0" y="28" width="414" height="62"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="AddCurrencyCell_ID" rowHeight="56" id="YmQ-k4-O8J" customClass="AddCurrencyCell" customModule="testRevolut" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="414" height="56"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="YmQ-k4-O8J" id="db6-2f-yxy">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="62"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="USD lbl" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Aa-8X-2ga">
+                                            <rect key="frame" x="52" y="18" width="54" height="20"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <color key="textColor" red="0.47840499879999998" green="0.47844964270000001" blue="0.47836768629999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4gg-2p-Sdp">
+                                            <rect key="frame" x="16" y="16" width="24" height="24"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="24" id="PBx-HM-6CJ"/>
+                                                <constraint firstAttribute="width" constant="24" id="R22-35-RtZ"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Us dolalar lbl" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i8o-TB-voV">
+                                            <rect key="frame" x="114" y="18" width="94" height="20"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="3Aa-8X-2ga" firstAttribute="centerY" secondItem="4gg-2p-Sdp" secondAttribute="centerY" id="Q4z-eX-xQb"/>
+                                        <constraint firstItem="3Aa-8X-2ga" firstAttribute="centerY" secondItem="i8o-TB-voV" secondAttribute="centerY" id="U1D-ST-G2r"/>
+                                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="i8o-TB-voV" secondAttribute="trailing" constant="16" id="Yl6-8Q-4Pg"/>
+                                        <constraint firstItem="4gg-2p-Sdp" firstAttribute="centerY" secondItem="db6-2f-yxy" secondAttribute="centerY" id="aA0-jb-I4d"/>
+                                        <constraint firstItem="3Aa-8X-2ga" firstAttribute="leading" secondItem="4gg-2p-Sdp" secondAttribute="trailing" constant="12" id="aC2-wN-tU6"/>
+                                        <constraint firstItem="4gg-2p-Sdp" firstAttribute="leading" secondItem="db6-2f-yxy" secondAttribute="leading" constant="16" id="czC-Tm-OKi"/>
+                                        <constraint firstItem="i8o-TB-voV" firstAttribute="leading" secondItem="3Aa-8X-2ga" secondAttribute="trailing" constant="8" id="e36-iy-fpI"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="currencyImg" destination="4gg-2p-Sdp" id="Bu7-t9-rxd"/>
+                                    <outlet property="currencyLongLbl" destination="i8o-TB-voV" id="0g4-JK-ygh"/>
+                                    <outlet property="currencyShortLbl" destination="3Aa-8X-2ga" id="TFs-Xb-PIF"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -175,7 +210,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4QN-tb-4Mq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="145" y="856"/>
+            <point key="canvasLocation" x="144.92753623188406" y="855.80357142857144"/>
         </scene>
     </scenes>
 </document>
