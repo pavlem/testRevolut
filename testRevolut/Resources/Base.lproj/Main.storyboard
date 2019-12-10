@@ -125,30 +125,56 @@
                             </constraints>
                         </view>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CurrencyListCell_ID" rowHeight="101" id="LAX-P7-fYy" customClass="CurrencyListCell" customModule="testRevolut" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="141" width="414" height="101"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CurrencyListCell_ID" rowHeight="80" id="LAX-P7-fYy" customClass="CurrencyListCell" customModule="testRevolut" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="141" width="414" height="80"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="LAX-P7-fYy" id="8gU-aR-POz">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="101"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="80"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Currency lbl" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d9s-ur-sBo">
-                                            <rect key="frame" x="20" y="40" width="93" height="21"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="First C" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d9s-ur-sBo">
+                                            <rect key="frame" x="20" y="11" width="50" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="First C Info" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pu5-Ng-Phy">
+                                            <rect key="frame" x="20" y="40" width="75" height="18"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                            <color key="textColor" red="0.47840499879999998" green="0.47844964270000001" blue="0.47836768629999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Second C" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aVL-T7-Xh1">
+                                            <rect key="frame" x="319" y="11" width="75" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Second C Info" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g7m-EW-pey">
+                                            <rect key="frame" x="297" y="40" width="97" height="18"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                            <color key="textColor" red="0.47840499879999998" green="0.47844964270000001" blue="0.47836768629999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstAttribute="bottom" secondItem="d9s-ur-sBo" secondAttribute="bottom" constant="40" id="bGA-N5-XWu"/>
-                                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="d9s-ur-sBo" secondAttribute="trailing" constant="16" id="eLA-VX-IYL"/>
-                                        <constraint firstItem="d9s-ur-sBo" firstAttribute="leading" secondItem="8gU-aR-POz" secondAttribute="leading" constant="20" id="ldE-QJ-77V"/>
-                                        <constraint firstItem="d9s-ur-sBo" firstAttribute="centerY" secondItem="8gU-aR-POz" secondAttribute="centerY" id="plX-Kg-Etg"/>
-                                        <constraint firstItem="d9s-ur-sBo" firstAttribute="top" secondItem="8gU-aR-POz" secondAttribute="top" constant="40" id="vbl-XU-cJo"/>
+                                        <constraint firstItem="Pu5-Ng-Phy" firstAttribute="leading" secondItem="d9s-ur-sBo" secondAttribute="leading" id="7F6-ih-3Q2"/>
+                                        <constraint firstItem="Pu5-Ng-Phy" firstAttribute="top" secondItem="d9s-ur-sBo" secondAttribute="bottom" constant="8" id="SDH-Is-xdS"/>
+                                        <constraint firstItem="d9s-ur-sBo" firstAttribute="top" secondItem="8gU-aR-POz" secondAttribute="top" constant="11" id="Ywo-bg-oVN"/>
+                                        <constraint firstItem="g7m-EW-pey" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Pu5-Ng-Phy" secondAttribute="trailing" constant="16" id="a6j-Ho-y6v"/>
+                                        <constraint firstAttribute="trailing" secondItem="aVL-T7-Xh1" secondAttribute="trailing" constant="20" id="bZG-0W-9U8"/>
+                                        <constraint firstItem="g7m-EW-pey" firstAttribute="trailing" secondItem="aVL-T7-Xh1" secondAttribute="trailing" id="e0S-Zs-fvR"/>
+                                        <constraint firstItem="aVL-T7-Xh1" firstAttribute="top" secondItem="8gU-aR-POz" secondAttribute="top" constant="11" id="eh1-gE-SN0"/>
+                                        <constraint firstItem="g7m-EW-pey" firstAttribute="top" secondItem="aVL-T7-Xh1" secondAttribute="bottom" constant="8" id="ghb-0t-04O"/>
+                                        <constraint firstItem="aVL-T7-Xh1" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="d9s-ur-sBo" secondAttribute="trailing" constant="16" id="lgk-PE-6Ld"/>
+                                        <constraint firstItem="d9s-ur-sBo" firstAttribute="leading" secondItem="8gU-aR-POz" secondAttribute="leading" constant="20" id="xHg-zh-zUL"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="currencyLbl" destination="d9s-ur-sBo" id="fxS-mX-02R"/>
+                                    <outlet property="firstCurrency" destination="d9s-ur-sBo" id="2KZ-Y6-bSI"/>
+                                    <outlet property="firstCurrencyInfo" destination="Pu5-Ng-Phy" id="8ho-9e-FRf"/>
+                                    <outlet property="secondCurrency" destination="aVL-T7-Xh1" id="dbv-AU-nTW"/>
+                                    <outlet property="secondCurrencyInfo" destination="g7m-EW-pey" id="Q9I-uf-GYZ"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>

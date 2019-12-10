@@ -9,18 +9,35 @@
 import UIKit
 
 class CurrencyListCell: UITableViewCell {
-
-    @IBOutlet weak var currencyLbl: UILabel!
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+    // MARK: - API
+    var currencyListVM: CurrencyListVM? {
+        willSet {
+            setUI(currencyListVM: currencyListVM)
+        }
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    // MARK: - Outlets
+    @IBOutlet weak var firstCurrency: UILabel!
+    @IBOutlet weak var firstCurrencyInfo: UILabel!
+    @IBOutlet weak var secondCurrency: UILabel!
+    @IBOutlet weak var secondCurrencyInfo: UILabel!
+    
+    // MARK: - Helper
+    func setUI(currencyListVM: CurrencyListVM?) {
+        
+        
     }
+    
+//    override func awakeFromNib() {
+//        super.awakeFromNib()
+//        // Initialization code
+//    }
+//
+//    override func setSelected(_ selected: Bool, animated: Bool) {
+//        super.setSelected(selected, animated: animated)
+//
+//        // Configure the view for the selected state
+//    }
 
 }
