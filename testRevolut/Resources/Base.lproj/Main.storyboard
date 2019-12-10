@@ -125,13 +125,31 @@
                             </constraints>
                         </view>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CurrencyListCell_ID" id="LAX-P7-fYy">
-                                <rect key="frame" x="0.0" y="141" width="414" height="43.5"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CurrencyListCell_ID" rowHeight="101" id="LAX-P7-fYy" customClass="CurrencyListCell" customModule="testRevolut" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="141" width="414" height="101"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="LAX-P7-fYy" id="8gU-aR-POz">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="101"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Currency lbl" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d9s-ur-sBo">
+                                            <rect key="frame" x="20" y="40" width="93" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="bottom" secondItem="d9s-ur-sBo" secondAttribute="bottom" constant="40" id="bGA-N5-XWu"/>
+                                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="d9s-ur-sBo" secondAttribute="trailing" constant="16" id="eLA-VX-IYL"/>
+                                        <constraint firstItem="d9s-ur-sBo" firstAttribute="leading" secondItem="8gU-aR-POz" secondAttribute="leading" constant="20" id="ldE-QJ-77V"/>
+                                        <constraint firstItem="d9s-ur-sBo" firstAttribute="centerY" secondItem="8gU-aR-POz" secondAttribute="centerY" id="plX-Kg-Etg"/>
+                                        <constraint firstItem="d9s-ur-sBo" firstAttribute="top" secondItem="8gU-aR-POz" secondAttribute="top" constant="40" id="vbl-XU-cJo"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="currencyLbl" destination="d9s-ur-sBo" id="fxS-mX-02R"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>

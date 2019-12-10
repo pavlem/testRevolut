@@ -46,8 +46,8 @@ extension CurrencyListTVC {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "CurrencyListCell_ID", for: indexPath)
-        cell.textLabel?.text = currencyList[indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CurrencyListCell_ID", for: indexPath) as! CurrencyListCell
+        cell.currencyLbl.text = currencyList[indexPath.row]
         return cell
     }
 }
@@ -55,10 +55,6 @@ extension CurrencyListTVC {
 // MARK: - AddCurrencyTVCDelegate
 extension CurrencyListTVC: AddCurrencyTVCDelegate {
     func added(currency: String) {
-        
-        
-        
-        
         currencyVC?.added(currency: currency)
     }
 }
