@@ -12,3 +12,24 @@ struct CurrencyListVM {
     let firstCurrency: String
     let secondCurrency: String
 }
+
+// TODO: - unit test
+extension CurrencyListVM {
+    static func getAddCurrencyVM(from addCurrencyVM: AddCurrencyVM, allSelectedCurrencies: [CurrencyListVM]?, firstSelectedCurrency: String?) -> AddCurrencyVM {
+        
+        var addCurrencyVM = addCurrencyVM
+        if addCurrencyVM.shortName == firstSelectedCurrency {
+            addCurrencyVM.isEnabled = false
+        }
+        
+        if let allSelectedCurrencies = allSelectedCurrencies {
+            for c in allSelectedCurrencies {
+                if c.firstCurrency == firstSelectedCurrency && c.secondCurrency == addCurrencyVM.shortName {
+                    addCurrencyVM.isEnabled = false
+                }
+            }
+        }
+        
+        return addCurrencyVM
+    }
+}

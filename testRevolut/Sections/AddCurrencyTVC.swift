@@ -39,26 +39,8 @@ extension AddCurrencyTVC {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let addCurrencyCell = tableView.dequeueReusableCell(withIdentifier: "AddCurrencyCell_ID", for: indexPath) as? AddCurrencyCell else { return UITableViewCell() }
-        
-        var addCurrencyVM = addCurrencyVMs[indexPath.row]
-
-        if addCurrencyVM.shortName == self.firstSelectedCurrency {
-            addCurrencyVM.isEnabled = false
-        }
-        
-        //TODO: - exctract
-        // ==========================================
-        if let allSelectedCurrencies = allSelectedCurrencies {
-            for c in allSelectedCurrencies {
-                if c.firstCurrency == self.firstSelectedCurrency && c.secondCurrency == addCurrencyVM.shortName {
-                    addCurrencyVM.isEnabled = false
-                }
-            }
-        }
-        // ==========================================
-
-        addCurrencyCell.addCurrencyVM = addCurrencyVM
+        let addCurrencyCell = tableView.dequeueReusableCell(withIdentifier: "AddCurrencyCell_ID", for: indexPath) as! AddCurrencyCell
+        addCurrencyCell.addCurrencyVM = CurrencyListVM.getAddCurrencyVM(from: addCurrencyVMs[indexPath.row], allSelectedCurrencies: allSelectedCurrencies, firstSelectedCurrency: self.firstSelectedCurrency)
         return addCurrencyCell
     }
 }
