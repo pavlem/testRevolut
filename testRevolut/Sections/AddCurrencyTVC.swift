@@ -9,16 +9,16 @@
 import UIKit
 
 protocol AddCurrencyTVCDelegate: class {
-    func added(currency: String)
+    func added(currencies: (first: String, second: String))
 }
 
 class AddCurrencyTVC: BaseTVC {
     
+    // MARK: - API
     weak var delegate: AddCurrencyTVCDelegate?
 
-    var isFirstCurrency = false
-    
-    var selectedCurr: String?
+    var isFirstCurrencyScreen = false
+    var firstSelectedCurrency: String?
     
     // MARK: - Properties
     private let addCurrencyVMs = AddCurrencyVM.getCurrenciesVMs()
@@ -42,7 +42,7 @@ extension AddCurrencyTVC {
         
         var addCurrencyVM = addCurrencyVMs[indexPath.row]
 
-        if addCurrencyVM.shortName == self.selectedCurr {
+        if addCurrencyVM.shortName == self.firstSelectedCurrency {
             addCurrencyVM.isEnabled = false
         }
         addCurrencyCell.addCurrencyVM = addCurrencyVM
@@ -55,15 +55,15 @@ extension AddCurrencyTVC {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
-        if isFirstCurrency {
+        if isFirstCurrencyScreen {
             let addCurrencyTVC = UIStoryboard.addCurrencyTVC
             addCurrencyTVC.delegate = self.delegate
-            addCurrencyTVC.selectedCurr = addCurrencyVMs[indexPath.row].shortName
+            addCurrencyTVC.firstSelectedCurrency = addCurrencyVMs[indexPath.row].shortName
             navigationController?.pushViewController(addCurrencyTVC, animated: true)
             return
         }
         
-        delegate?.added(currency: addCurrencyVMs[indexPath.row].shortName)
-        self.dismiss(animated: true) {}
+        delegate?.added(currencies: (first: firstSelectedCurrency!, second: addCurrencyVMs[indexPath.row].shortName))
+        dismiss(animated: true) {}
     }
 }

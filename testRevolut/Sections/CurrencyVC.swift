@@ -32,7 +32,7 @@ class CurrencyVC: UIViewController {
         let addCurrencyTVC = UIStoryboard.addCurrencyTVC
         addCurrencyTVC.delegate = self
         addCurrencyTVC.modalPresentationStyle = .fullScreen
-        addCurrencyTVC.isFirstCurrency = true
+        addCurrencyTVC.isFirstCurrencyScreen = true
         let nc = UINavigationController(rootViewController: addCurrencyTVC)
         nc.modalPresentationStyle = .fullScreen
         present(nc, animated: true) {}
@@ -46,9 +46,10 @@ class CurrencyVC: UIViewController {
 
 // MARK: - AddCurrencyTVCDelegate
 extension CurrencyVC: AddCurrencyTVCDelegate {
-    func added(currency: String) {
+    func added(currencies: (first: String, second: String)) {
         
-        currencyListTVC?.currencyList.append(currency)
+        let currencyListVM = CurrencyListVM(firstCurrency: currencies.first, secondCurrency: currencies.second)
+        currencyListTVC?.currencyList.append(currencyListVM)
         currencyListTVC?.tableView.reloadData()
         setCurrencyListTVCContainer()
     }
