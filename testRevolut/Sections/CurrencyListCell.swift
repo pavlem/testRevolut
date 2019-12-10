@@ -13,7 +13,7 @@ class CurrencyListCell: UITableViewCell {
     // MARK: - API
     var currencyListVM: CurrencyListVM? {
         willSet {
-            setUI(currencyListVM: currencyListVM)
+            setUI(currencyListVM: newValue)
         }
     }
 
@@ -23,21 +23,32 @@ class CurrencyListCell: UITableViewCell {
     @IBOutlet weak var secondCurrency: UILabel!
     @IBOutlet weak var secondCurrencyInfo: UILabel!
     
-    // MARK: - Helper
-    func setUI(currencyListVM: CurrencyListVM?) {
+    // MARK: - Lifecycle
+    override func awakeFromNib() {
+        super.awakeFromNib()
         
-        
+        setUI()
     }
     
-//    override func awakeFromNib() {
-//        super.awakeFromNib()
-//        // Initialization code
-//    }
-//
-//    override func setSelected(_ selected: Bool, animated: Bool) {
-//        super.setSelected(selected, animated: animated)
-//
-//        // Configure the view for the selected state
-//    }
+    // MARK: - Helper
+    private func setUI(currencyListVM: CurrencyListVM?) {
+        
+        firstCurrency.text = "1 " + (currencyListVM?.firstCurrency ?? "")
+        secondCurrency.text = currencyListVM?.value
+        firstCurrencyInfo.text = currencyListVM?.firstCurrencyDetail ?? ""
+        secondCurrencyInfo.text = (currencyListVM?.secondCurrencyDetail ?? "") + "•" +  (currencyListVM?.secondCurrency ?? "")
 
+    }
+    
+    private func setUI() {
+        firstCurrency.font = UIFont.systemFont(ofSize: 17)
+        firstCurrencyInfo.font = UIFont.systemFont(ofSize: 15)
+        secondCurrency.font = UIFont.systemFont(ofSize: 17)
+        secondCurrencyInfo.font = UIFont.systemFont(ofSize: 15)
+        
+        firstCurrency.textColor = .black
+        firstCurrencyInfo.textColor = .lightGray
+        secondCurrency.textColor = .black
+        secondCurrencyInfo.textColor = .lightGray
+    }
 }

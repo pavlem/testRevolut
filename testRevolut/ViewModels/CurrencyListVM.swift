@@ -11,6 +11,11 @@ import Foundation
 struct CurrencyListVM {
     let firstCurrency: String
     let secondCurrency: String
+    
+    let firstCurrencyDetail: String
+    let secondCurrencyDetail: String
+    
+    var value: String = "???"
 }
 
 // TODO: - unit test

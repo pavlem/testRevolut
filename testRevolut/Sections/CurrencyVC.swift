@@ -48,9 +48,15 @@ class CurrencyVC: UIViewController {
 extension CurrencyVC: AddCurrencyTVCDelegate {
     func added(currencies: (first: String, second: String)) {
         
-        let currencyListVM = CurrencyListVM(firstCurrency: currencies.first, secondCurrency: currencies.second)
+        let addCurrencyVMs = AddCurrencyVM.getCurrenciesVMs()
+        let fPaja = addCurrencyVMs.filter{ $0.shortName == currencies.first}.first?.longName ?? ""
+        let sPaja = addCurrencyVMs.filter{ $0.shortName == currencies.second}.first?.longName ?? ""
+
+        let currencyListVM = CurrencyListVM(firstCurrency: currencies.first, secondCurrency: currencies.second, firstCurrencyDetail: fPaja, secondCurrencyDetail: sPaja)
+        
         currencyListTVC?.currencyList.append(currencyListVM)
         currencyListTVC?.tableView.reloadData()
+        
         setCurrencyListTVCContainer()
     }
 }
