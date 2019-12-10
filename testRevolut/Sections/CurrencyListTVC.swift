@@ -33,6 +33,8 @@ class CurrencyListTVC: BaseTVC {
         addCurrencyTVC.delegate = self
         addCurrencyTVC.modalPresentationStyle = .fullScreen
         addCurrencyTVC.isFirstCurrencyScreen = true
+        addCurrencyTVC.allSelectedCurrencies = currencyList
+
         let nc = UINavigationController(rootViewController: addCurrencyTVC)
         nc.modalPresentationStyle = .fullScreen
         present(nc, animated: true) {}

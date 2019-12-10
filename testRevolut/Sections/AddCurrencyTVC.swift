@@ -19,6 +19,7 @@ class AddCurrencyTVC: BaseTVC {
 
     var isFirstCurrencyScreen = false
     var firstSelectedCurrency: String?
+    var allSelectedCurrencies: [CurrencyListVM]?
     
     // MARK: - Properties
     private let addCurrencyVMs = AddCurrencyVM.getCurrenciesVMs()
@@ -45,6 +46,18 @@ extension AddCurrencyTVC {
         if addCurrencyVM.shortName == self.firstSelectedCurrency {
             addCurrencyVM.isEnabled = false
         }
+        
+        //TODO: - exctract
+        // ==========================================
+        if let allSelectedCurrencies = allSelectedCurrencies {
+            for c in allSelectedCurrencies {
+                if c.firstCurrency == self.firstSelectedCurrency && c.secondCurrency == addCurrencyVM.shortName {
+                    addCurrencyVM.isEnabled = false
+                }
+            }
+        }
+        // ==========================================
+
         addCurrencyCell.addCurrencyVM = addCurrencyVM
         return addCurrencyCell
     }
@@ -59,6 +72,7 @@ extension AddCurrencyTVC {
             let addCurrencyTVC = UIStoryboard.addCurrencyTVC
             addCurrencyTVC.delegate = self.delegate
             addCurrencyTVC.firstSelectedCurrency = addCurrencyVMs[indexPath.row].shortName
+            addCurrencyTVC.allSelectedCurrencies = allSelectedCurrencies
             navigationController?.pushViewController(addCurrencyTVC, animated: true)
             return
         }
