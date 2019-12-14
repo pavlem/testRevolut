@@ -8,13 +8,11 @@
 
 import Foundation
 
-struct CurrencyListVM {
+struct CurrencyListVM: Codable {
     let firstCurrency: String
     let secondCurrency: String
-    
     let firstCurrencyDetail: String
     let secondCurrencyDetail: String
-    
     var value: String = "???"
 }
 
@@ -28,8 +26,8 @@ extension CurrencyListVM {
         }
         
         if let allSelectedCurrencies = allSelectedCurrencies {
-            for c in allSelectedCurrencies {
-                if c.firstCurrency == firstSelectedCurrency && c.secondCurrency == addCurrencyVM.shortName {
+            for currency in allSelectedCurrencies {
+                if currency.firstCurrency == firstSelectedCurrency && currency.secondCurrency == addCurrencyVM.shortName {
                     addCurrencyVM.isEnabled = false
                 }
             }
