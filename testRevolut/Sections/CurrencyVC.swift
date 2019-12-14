@@ -29,6 +29,14 @@ class CurrencyVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        print("CurrencyVC _ viewDidLoad")
+        print(UserDefaultsHelper.shared.currencies?.count ?? "0")
+        
+        if let paja = UserDefaultsHelper.shared.currencies {
+            currencyListTVC?.currencyList = paja
+            currencyListTVC?.tableView.reloadData()
+        }
+        
         setCurrencyListTVCContainer()
     }
 
@@ -52,6 +60,10 @@ extension CurrencyVC: AddCurrencyTVCDelegate {
         let secondCurrency = addCurrencyVMs.filter{ $0.shortName == currencies.second}.first?.longName ?? ""
         let currencyListVM = CurrencyListVM(firstCurrency: currencies.first, secondCurrency: currencies.second, firstCurrencyDetail: firstCurrency, secondCurrencyDetail: secondCurrency)
         currencyListTVC?.currencyList.append(currencyListVM)
+        
+        UserDefaultsHelper.shared.currencies = currencyListTVC?.currencyList
+        print("CurrencyVC _ added(currencies")
+        print(UserDefaultsHelper.shared.currencies?.count ?? "0")
         currencyListTVC?.tableView.reloadData()
         setCurrencyListTVCContainer()
     }
