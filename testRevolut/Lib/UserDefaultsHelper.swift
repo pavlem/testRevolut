@@ -22,6 +22,7 @@ class UserDefaultsHelper {
             return nil
         }
         set {
+            print(newValue?.count)
             let encoded = try! JSONEncoder().encode(newValue)
             UserDefaults.standard.set(encoded, forKey: currenciesKey)
         }

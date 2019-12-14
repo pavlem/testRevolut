@@ -64,8 +64,6 @@ extension CurrencyListTVC {
         if editingStyle == .delete {
             currencyList.remove(at: indexPath.row)
             UserDefaultsHelper.shared.currencies = currencyList
-            print("CurrencyListTVC _ .delete")
-            print(UserDefaultsHelper.shared.currencies?.count ?? "0")
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
     }
