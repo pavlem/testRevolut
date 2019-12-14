@@ -21,12 +21,14 @@ class CurrencyListTVC: BaseTVC {
     private var currencyVC: CurrencyVC? {
         return self.parent as? CurrencyVC
     }
-
+    
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        setUI()
     }
-
+    
     // MARK: - Actions
     @IBAction func addCurrency(_ sender: Any) {
         let addCurrencyTVC = UIStoryboard.addCurrencyTVC
@@ -34,10 +36,17 @@ class CurrencyListTVC: BaseTVC {
         addCurrencyTVC.modalPresentationStyle = .fullScreen
         addCurrencyTVC.isFirstCurrencyScreen = true
         addCurrencyTVC.allSelectedCurrencies = currencyList
-
+        
         let nc = UINavigationController(rootViewController: addCurrencyTVC)
         nc.modalPresentationStyle = .fullScreen
         present(nc, animated: true) {}
+    }
+    
+    // MARK: - Helper
+    private func setUI() {
+        addCurrencyBtn.setImage(UIImage(named: "AddBtnImg"), for: .normal)
+        addCurrencyTxtBtn.setTitle("Add currency pair", for: .normal)
+        addCurrencyTxtBtn.setTitleColor(UIColor(hex: "#0075EB"), for: .normal)
     }
 }
 
@@ -49,7 +58,7 @@ extension CurrencyListTVC {
         }
         return currencyList.count
     }
-
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CurrencyListCell_ID", for: indexPath) as! CurrencyListCell
         cell.currencyListVM = currencyList[indexPath.row]
@@ -63,7 +72,12 @@ extension CurrencyListTVC {
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             currencyList.remove(at: indexPath.row)
-            UserDefaultsHelper.shared.currencies = currencyList
+            if currencyList.count == 0 {
+                UserDefaultsHelper.shared.removeCurrencies()
+            } else {
+                UserDefaultsHelper.shared.currencies = currencyList
+                
+            }
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
     }

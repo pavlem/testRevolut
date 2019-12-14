@@ -32,12 +32,10 @@ class CurrencyListCell: UITableViewCell {
     
     // MARK: - Helper
     private func setUI(currencyListVM: CurrencyListVM?) {
-        
         firstCurrency.text = "1 " + (currencyListVM?.firstCurrency ?? "")
         secondCurrency.text = currencyListVM?.value
         firstCurrencyInfo.text = currencyListVM?.firstCurrencyDetail ?? ""
         secondCurrencyInfo.text = (currencyListVM?.secondCurrencyDetail ?? "") + "•" +  (currencyListVM?.secondCurrency ?? "")
-
     }
     
     private func setUI() {
@@ -50,5 +48,7 @@ class CurrencyListCell: UITableViewCell {
         firstCurrencyInfo.textColor = .lightGray
         secondCurrency.textColor = .black
         secondCurrencyInfo.textColor = .lightGray
+        
+        selectionStyle = .none
     }
 }

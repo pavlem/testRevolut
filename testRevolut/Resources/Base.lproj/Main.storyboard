@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -87,18 +87,28 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <view key="tableHeaderView" contentMode="scaleToFill" id="07W-O1-OOv">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="113"/>
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="76"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CQg-Wx-yH0" customClass="AddBtn" customModule="testRevolut" customModuleProvider="target">
-                                    <rect key="frame" x="8" y="16.5" width="80" height="80"/>
-                                    <color key="backgroundColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yU5-61-B8H">
+                                    <rect key="frame" x="76" y="22" width="165" height="32"/>
+                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                    <state key="normal" title="Add currency pair btn"/>
+                                    <connections>
+                                        <action selector="addCurrency:" destination="lC9-aJ-XGR" eventType="touchUpInside" id="24I-oe-84P"/>
+                                        <action selector="addCurrency:" destination="BYZ-38-t0r" eventType="touchUpInside" id="an0-2D-rGN"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CQg-Wx-yH0" customClass="AddBtn" customModule="testRevolut" customModuleProvider="target">
+                                    <rect key="frame" x="20" y="18" width="40" height="40"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
-                                        <constraint firstAttribute="height" constant="80" id="jhO-KN-mGw"/>
-                                        <constraint firstAttribute="width" constant="80" id="l3g-Lt-vzp"/>
+                                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="XdQ-YC-nRX"/>
+                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="40" id="apI-IB-6th"/>
+                                        <constraint firstAttribute="height" constant="40" id="jhO-KN-mGw"/>
+                                        <constraint firstAttribute="width" constant="40" id="l3g-Lt-vzp"/>
                                     </constraints>
-                                    <fontDescription key="fontDescription" type="system" pointSize="55"/>
-                                    <state key="normal" title="+">
+                                    <state key="normal" image="AddBtnImg">
                                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </state>
                                     <connections>
@@ -106,27 +116,19 @@
                                         <action selector="addCurrency:" destination="lC9-aJ-XGR" eventType="touchUpInside" id="PEh-xk-KSw"/>
                                     </connections>
                                 </button>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yU5-61-B8H">
-                                    <rect key="frame" x="96" y="41.5" width="122" height="30"/>
-                                    <state key="normal" title="Add currency pair"/>
-                                    <connections>
-                                        <action selector="addCurrency:" destination="lC9-aJ-XGR" eventType="touchUpInside" id="24I-oe-84P"/>
-                                        <action selector="addCurrency:" destination="BYZ-38-t0r" eventType="touchUpInside" id="an0-2D-rGN"/>
-                                    </connections>
-                                </button>
                             </subviews>
                             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             <constraints>
                                 <constraint firstItem="CQg-Wx-yH0" firstAttribute="centerY" secondItem="07W-O1-OOv" secondAttribute="centerY" id="4vf-fU-kkz"/>
-                                <constraint firstItem="yU5-61-B8H" firstAttribute="leading" secondItem="CQg-Wx-yH0" secondAttribute="trailing" constant="8" id="PGP-Q6-pBM"/>
-                                <constraint firstItem="CQg-Wx-yH0" firstAttribute="leading" secondItem="07W-O1-OOv" secondAttribute="leading" constant="8" id="Ra6-dt-DiJ"/>
+                                <constraint firstItem="yU5-61-B8H" firstAttribute="leading" secondItem="CQg-Wx-yH0" secondAttribute="trailing" constant="16" id="PGP-Q6-pBM"/>
+                                <constraint firstItem="CQg-Wx-yH0" firstAttribute="leading" secondItem="07W-O1-OOv" secondAttribute="leading" constant="20" id="Ra6-dt-DiJ"/>
                                 <constraint firstItem="yU5-61-B8H" firstAttribute="centerY" secondItem="CQg-Wx-yH0" secondAttribute="centerY" id="oz8-dP-CrH"/>
                                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="yU5-61-B8H" secondAttribute="trailing" constant="16" id="xXE-KW-kFn"/>
                             </constraints>
                         </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CurrencyListCell_ID" rowHeight="80" id="LAX-P7-fYy" customClass="CurrencyListCell" customModule="testRevolut" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="141" width="414" height="80"/>
+                                <rect key="frame" x="0.0" y="104" width="414" height="80"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="LAX-P7-fYy" id="8gU-aR-POz">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="80"/>
@@ -261,4 +263,7 @@
             <point key="canvasLocation" x="144.92753623188406" y="855.80357142857144"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="AddBtnImg" width="40" height="40"/>
+    </resources>
 </document>

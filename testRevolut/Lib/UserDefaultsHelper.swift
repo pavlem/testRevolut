@@ -28,5 +28,10 @@ class UserDefaultsHelper {
         }
     }
     
+    func removeCurrencies() {
+        UserDefaults.standard.removeObject(forKey: currenciesKey)
+        aprint("removeCurrencies")
+    }
+    
     private let currenciesKey = "currencies"
 }

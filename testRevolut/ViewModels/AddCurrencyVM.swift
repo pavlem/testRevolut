@@ -30,6 +30,11 @@ extension AddCurrencyVM {
             let addCurrencyVM = AddCurrencyVM(shortName: key, longName: currencyListDictionary[key] ?? "", countryIcon: imgIcon)
             addCurrencyVMs.append(addCurrencyVM)
         }
+        
+        addCurrencyVMs.sort { ( currency1, currency2) -> Bool in
+            return currency1.longName < currency2.longName
+        }
+        
         return addCurrencyVMs
     }
 }
