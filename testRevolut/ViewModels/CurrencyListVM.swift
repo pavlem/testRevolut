@@ -14,6 +14,22 @@ struct CurrencyListVM: Codable {
     let firstCurrencyDetail: String
     let secondCurrencyDetail: String
     var value: String = "???"
+    
+    var firstCurrencyCellTxt: String {
+        return "1 " + firstCurrency
+    }
+    
+    var secondCurrencyCellTxt: String {
+        return value
+    }
+    
+    var firstCurrencyCellInfoTxt: String {
+        return firstCurrencyDetail
+    }
+    
+    var secondCurrencyCellInfoTxt: String {
+        return secondCurrencyDetail + "•" + secondCurrency
+    }
 }
 
 // TODO: - unit test
