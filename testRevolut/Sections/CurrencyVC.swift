@@ -74,6 +74,7 @@ class CurrencyVC: UIViewController {
 // MARK: - AddCurrencyTVCDelegate
 extension CurrencyVC: AddCurrencyTVCDelegate {
     func added(currencies: (first: String, second: String)) {
+        isReturningFromAddCurrency = true
         let addCurrencyVMs = AddCurrencyVM.getCurrenciesVMs()
         let firstCurrency = addCurrencyVMs.filter{ $0.shortName == currencies.first}.first?.longName ?? ""
         let secondCurrency = addCurrencyVMs.filter{ $0.shortName == currencies.second}.first?.longName ?? ""

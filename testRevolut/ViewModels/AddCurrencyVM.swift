@@ -49,7 +49,6 @@ extension AddCurrencyVM {
         "HKD" : "Hong Kong Dollar",
         "HRK" : "Kuna",
         "HUF" : "Forint",
-        "IDR" : "Rupiah",
         "ILS" : "New Israeli Sheqel",
         "INR" : "Indian Rupee",
         "ISK" : "Iceland Krona",
