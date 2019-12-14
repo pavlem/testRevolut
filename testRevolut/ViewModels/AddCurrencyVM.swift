@@ -9,8 +9,8 @@
 import UIKit
 
 struct AddCurrencyVM {
-    let shortName: String
-    let longName: String
+    let currencyCode: String
+    let currencyName: String
     let countryIcon: UIImage
     var isEnabled = true
 }
@@ -27,12 +27,12 @@ extension AddCurrencyVM {
                 imgIcon = UIImage(named: country.countryCode + "@3x") ?? UIImage()
             }
             
-            let addCurrencyVM = AddCurrencyVM(shortName: key, longName: currencyListDictionary[key] ?? "", countryIcon: imgIcon)
+            let addCurrencyVM = AddCurrencyVM(currencyCode: key, currencyName: currencyListDictionary[key] ?? "", countryIcon: imgIcon)
             addCurrencyVMs.append(addCurrencyVM)
         }
         
         addCurrencyVMs.sort { ( currency1, currency2) -> Bool in
-            return currency1.longName < currency2.longName
+            return currency1.currencyName < currency2.currencyName
         }
         
         return addCurrencyVMs

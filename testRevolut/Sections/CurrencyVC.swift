@@ -86,8 +86,8 @@ extension CurrencyVC: AddCurrencyTVCDelegate {
     func added(currencies: (first: String, second: String)) {
         isReturningFromAddCurrency = true
         let addCurrencyVMs = AddCurrencyVM.getCurrenciesVMs()
-        let firstCurrency = addCurrencyVMs.filter{ $0.shortName == currencies.first}.first?.longName ?? ""
-        let secondCurrency = addCurrencyVMs.filter{ $0.shortName == currencies.second}.first?.longName ?? ""
+        let firstCurrency = addCurrencyVMs.filter{ $0.currencyCode == currencies.first}.first?.currencyName ?? ""
+        let secondCurrency = addCurrencyVMs.filter{ $0.currencyCode == currencies.second}.first?.currencyName ?? ""
         let currencyListVM = CurrencyListVM(firstCurrency: currencies.first, secondCurrency: currencies.second, firstCurrencyDetail: firstCurrency, secondCurrencyDetail: secondCurrency)
         currencyListTVC?.currencyList.append(currencyListVM)
 //        UserDefaultsHelper.shared.currencies = currencyListTVC?.currencyList

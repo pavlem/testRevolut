@@ -53,13 +53,13 @@ extension AddCurrencyTVC {
         if isFirstCurrencyScreen {
             let addCurrencyTVC = UIStoryboard.addCurrencyTVC
             addCurrencyTVC.delegate = self.delegate
-            addCurrencyTVC.firstSelectedCurrency = addCurrencyVMs[indexPath.row].shortName
+            addCurrencyTVC.firstSelectedCurrency = addCurrencyVMs[indexPath.row].currencyCode
             addCurrencyTVC.allSelectedCurrencies = allSelectedCurrencies
             navigationController?.pushViewController(addCurrencyTVC, animated: true)
             return
         }
         
-        delegate?.added(currencies: (first: firstSelectedCurrency!, second: addCurrencyVMs[indexPath.row].shortName))
+        delegate?.added(currencies: (first: firstSelectedCurrency!, second: addCurrencyVMs[indexPath.row].currencyCode))
         dismiss(animated: true) {}
     }
 }

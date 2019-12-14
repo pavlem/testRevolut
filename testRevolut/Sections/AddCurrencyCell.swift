@@ -41,12 +41,13 @@ class AddCurrencyCell: UITableViewCell {
     }
        
     private func setUI(addCurrencyVM: AddCurrencyVM?) {
-        currencyLongLbl.text = addCurrencyVM?.longName
-        currencyShortLbl.text = addCurrencyVM?.shortName
-        currencyImg.image = addCurrencyVM?.countryIcon
+        guard let addCurrencyVM = addCurrencyVM else { return }
+        currencyLongLbl.text = addCurrencyVM.currencyName
+        currencyShortLbl.text = addCurrencyVM.currencyCode
+        currencyImg.image = addCurrencyVM.countryIcon
         currencyImg.contentMode = .scaleAspectFill
         
-        if addCurrencyVM?.isEnabled == false {
+        if addCurrencyVM.isEnabled == false {
             setDisabledMode()
         }
     }

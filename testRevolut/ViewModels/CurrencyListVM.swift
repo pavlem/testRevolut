@@ -37,13 +37,13 @@ extension CurrencyListVM {
     static func getAddCurrencyVM(from addCurrencyVM: AddCurrencyVM, allSelectedCurrencies: [CurrencyListVM]?, firstSelectedCurrency: String?) -> AddCurrencyVM {
         
         var addCurrencyVM = addCurrencyVM
-        if addCurrencyVM.shortName == firstSelectedCurrency {
+        if addCurrencyVM.currencyCode == firstSelectedCurrency {
             addCurrencyVM.isEnabled = false
         }
         
         if let allSelectedCurrencies = allSelectedCurrencies {
             for currency in allSelectedCurrencies {
-                if currency.firstCurrency == firstSelectedCurrency && currency.secondCurrency == addCurrencyVM.shortName {
+                if currency.firstCurrency == firstSelectedCurrency && currency.secondCurrency == addCurrencyVM.currencyCode {
                     addCurrencyVM.isEnabled = false
                 }
             }
