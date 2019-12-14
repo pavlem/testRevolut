@@ -9,6 +9,11 @@
 import UIKit
 
 class CurrencyVC: UIViewController {
+    
+    // MARK: - API
+    func setCurrencyListTVCContainer() {
+        currencyListTVCContainer.isHidden = currencyListTVC?.currencyList.count == 0 ? true : false
+    }
 
     // MARK: - Outlets
     @IBOutlet weak var addCurrencyBtn: AddBtn!
@@ -37,26 +42,17 @@ class CurrencyVC: UIViewController {
         nc.modalPresentationStyle = .fullScreen
         present(nc, animated: true) {}
     }
-    
-    // MARK: - Helper
-    private func setCurrencyListTVCContainer() {
-        currencyListTVCContainer.isHidden = currencyListTVC?.currencyList.count == 0 ? true : false
-    }
 }
 
 // MARK: - AddCurrencyTVCDelegate
 extension CurrencyVC: AddCurrencyTVCDelegate {
     func added(currencies: (first: String, second: String)) {
-        
         let addCurrencyVMs = AddCurrencyVM.getCurrenciesVMs()
-        let fPaja = addCurrencyVMs.filter{ $0.shortName == currencies.first}.first?.longName ?? ""
-        let sPaja = addCurrencyVMs.filter{ $0.shortName == currencies.second}.first?.longName ?? ""
-
-        let currencyListVM = CurrencyListVM(firstCurrency: currencies.first, secondCurrency: currencies.second, firstCurrencyDetail: fPaja, secondCurrencyDetail: sPaja)
-        
+        let firstCurrency = addCurrencyVMs.filter{ $0.shortName == currencies.first}.first?.longName ?? ""
+        let secondCurrency = addCurrencyVMs.filter{ $0.shortName == currencies.second}.first?.longName ?? ""
+        let currencyListVM = CurrencyListVM(firstCurrency: currencies.first, secondCurrency: currencies.second, firstCurrencyDetail: firstCurrency, secondCurrencyDetail: secondCurrency)
         currencyListTVC?.currencyList.append(currencyListVM)
         currencyListTVC?.tableView.reloadData()
-        
         setCurrencyListTVCContainer()
     }
 }

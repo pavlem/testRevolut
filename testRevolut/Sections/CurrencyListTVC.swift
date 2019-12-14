@@ -44,6 +44,9 @@ class CurrencyListTVC: BaseTVC {
 // MARK: - Table view data source
 extension CurrencyListTVC {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if currencyList.count == 0 {
+            currencyVC?.setCurrencyListTVCContainer()
+        }
         return currencyList.count
     }
 
