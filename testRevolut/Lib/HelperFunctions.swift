@@ -52,3 +52,18 @@ extension UIColor {
         return nil
     }
 }
+
+extension UIColor {
+    static let lightBlue = UIColor(hex: "#0075EB")
+}
+
+extension UIImage {
+    static let addButon = UIImage(named: "AddBtnImg")
+    static let addBigButon = UIImage(named: "AddBigBtnImg")
+}
+
+extension String {
+    static let addBtnText = "Add currency pair"
+    static let addBtnTextLbl = "Choose currency pair to compare their live rate"
+}
+

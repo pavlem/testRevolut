@@ -15,13 +15,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c4h-Ia-PLl">
-                                <rect key="frame" x="146" y="412" width="122" height="30"/>
-                                <state key="normal" title="Add currency pair"/>
-                                <connections>
-                                    <action selector="addCurrency:" destination="BYZ-38-t0r" eventType="touchUpInside" id="eBJ-zP-k2U"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NsK-2n-7Br">
                                 <rect key="frame" x="167" y="324" width="80" height="80"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -36,8 +29,15 @@
                                     <action selector="addCurrency:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5h3-Pg-OHZ"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose currency pair to compare their live rate" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pmg-hl-v8q">
-                                <rect key="frame" x="73" y="450" width="268" height="36"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c4h-Ia-PLl">
+                                <rect key="frame" x="132.5" y="412" width="149" height="30"/>
+                                <state key="normal" title="Add currency pair btn"/>
+                                <connections>
+                                    <action selector="addCurrency:" destination="BYZ-38-t0r" eventType="touchUpInside" id="eBJ-zP-k2U"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose currency pair to compare their live rate lbl" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pmg-hl-v8q">
+                                <rect key="frame" x="59.5" y="450" width="295" height="36"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" red="0.47840499879999998" green="0.47844964270000001" blue="0.47836768629999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>

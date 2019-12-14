@@ -64,10 +64,11 @@ class CurrencyVC: UIViewController {
     
     // MARK: - Helper
     private func setUI() {
-        addCurrencyBtn.setImage(UIImage(named: "AddBigBtnImg"), for: .normal)
-        addCurrencyTxtBtn.setTitle("Add currency pair", for: .normal)
-        addCurrencyTxtBtn.setTitleColor(UIColor(hex: "#0075EB"), for: .normal)
+        addCurrencyBtn.setImage(UIImage.addBigButon, for: .normal)
+        addCurrencyTxtBtn.setTitle(String.addBtnText, for: .normal)
+        addCurrencyTxtBtn.setTitleColor(UIColor.lightBlue, for: .normal)
         addCurrencyInfoLbl.textColor = .lightGray
+        addCurrencyInfoLbl.text = String.addBtnTextLbl
     }
     
     private func fetchAndSetSavedCurrencies(  completion: @escaping ([CurrencyListVM]) -> ()) {

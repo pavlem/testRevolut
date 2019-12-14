@@ -44,9 +44,9 @@ class CurrencyListTVC: BaseTVC {
     
     // MARK: - Helper
     private func setUI() {
-        addCurrencyBtn.setImage(UIImage(named: "AddBtnImg"), for: .normal)
-        addCurrencyTxtBtn.setTitle("Add currency pair", for: .normal)
-        addCurrencyTxtBtn.setTitleColor(UIColor(hex: "#0075EB"), for: .normal)
+        addCurrencyBtn.setImage(UIImage.addButon, for: .normal)
+        addCurrencyTxtBtn.setTitle(String.addBtnText, for: .normal)
+        addCurrencyTxtBtn.setTitleColor(UIColor.lightBlue, for: .normal)
     }
 }
 
