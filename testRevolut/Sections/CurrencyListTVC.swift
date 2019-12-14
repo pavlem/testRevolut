@@ -73,5 +73,6 @@ extension CurrencyListTVC {
 extension CurrencyListTVC: AddCurrencyTVCDelegate {
     func added(currencies: (first: String, second: String)) {
         currencyVC?.added(currencies: (first: currencies.first, second: currencies.second))
+        currencyVC?.isReturningFromAddCurrency = true
     }
 }
