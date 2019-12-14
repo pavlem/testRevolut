@@ -15,7 +15,7 @@ class CurrencyListTVC: BaseTVC {
     
     // MARK: - Properties
     // MARK: Outlets
-    @IBOutlet weak var addCurrencyBtn: AddBtn!
+    @IBOutlet weak var addCurrencyBtn: UIButton!
     @IBOutlet weak var addCurrencyTxtBtn: UIButton!
     // MARK: Calculated
     private var currencyVC: CurrencyVC? {

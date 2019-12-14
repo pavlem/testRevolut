@@ -17,7 +17,7 @@ class CurrencyVC: UIViewController {
     var isReturningFromAddCurrency = false
     
     // MARK: - Outlets
-    @IBOutlet weak var addCurrencyBtn: AddBtn!
+    @IBOutlet weak var addCurrencyBtn: UIButton!
     @IBOutlet weak var addCurrencyTxtBtn: UIButton!
     @IBOutlet weak var addCurrencyInfoLbl: UILabel!
     @IBOutlet weak var currencyListTVCContainer: UIView!
@@ -29,6 +29,8 @@ class CurrencyVC: UIViewController {
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        setUI()
         
         fetchAndSetSavedCurrencies { (currencies) in
             DispatchQueue.main.async {
@@ -61,6 +63,13 @@ class CurrencyVC: UIViewController {
     }
     
     // MARK: - Helper
+    private func setUI() {
+        addCurrencyBtn.setImage(UIImage(named: "AddBigBtnImg"), for: .normal)
+        addCurrencyTxtBtn.setTitle("Add currency pair", for: .normal)
+        addCurrencyTxtBtn.setTitleColor(UIColor(hex: "#0075EB"), for: .normal)
+        addCurrencyInfoLbl.textColor = .lightGray
+    }
+    
     private func fetchAndSetSavedCurrencies(  completion: @escaping ([CurrencyListVM]) -> ()) {
         
         DispatchQueue.global().async {

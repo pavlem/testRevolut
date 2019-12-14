@@ -22,15 +22,14 @@
                                     <action selector="addCurrency:" destination="BYZ-38-t0r" eventType="touchUpInside" id="eBJ-zP-k2U"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NsK-2n-7Br" customClass="AddBtn" customModule="testRevolut" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NsK-2n-7Br">
                                 <rect key="frame" x="167" y="324" width="80" height="80"/>
-                                <color key="backgroundColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="80" id="RJd-x1-bl0"/>
                                     <constraint firstAttribute="height" constant="80" id="Uuh-DH-hS0"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="55"/>
-                                <state key="normal" title="+">
+                                <state key="normal" image="AddBigBtnImg">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
@@ -68,7 +67,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
-                        <outlet property="addCurrencyBtn" destination="NsK-2n-7Br" id="uR7-aa-Krb"/>
+                        <outlet property="addCurrencyBtn" destination="NsK-2n-7Br" id="VX3-bM-A4v"/>
                         <outlet property="addCurrencyInfoLbl" destination="Pmg-hl-v8q" id="1QW-yp-I7J"/>
                         <outlet property="addCurrencyTxtBtn" destination="c4h-Ia-PLl" id="b5P-Qv-Y7o"/>
                         <outlet property="currencyListTVCContainer" destination="aVH-56-vlt" id="5RA-EO-lRD"/>
@@ -99,7 +98,7 @@
                                         <action selector="addCurrency:" destination="BYZ-38-t0r" eventType="touchUpInside" id="an0-2D-rGN"/>
                                     </connections>
                                 </button>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CQg-Wx-yH0" customClass="AddBtn" customModule="testRevolut" customModuleProvider="target">
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CQg-Wx-yH0">
                                     <rect key="frame" x="20" y="18" width="40" height="40"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
@@ -264,6 +263,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="AddBigBtnImg" width="80" height="80"/>
         <image name="AddBtnImg" width="40" height="40"/>
     </resources>
 </document>
