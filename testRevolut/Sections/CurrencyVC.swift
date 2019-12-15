@@ -14,6 +14,13 @@ class CurrencyVC: UIViewController {
     func setCurrencyListTVCContainer() {
         currencyListTVCContainer.isHidden = currencyListTVC?.currencyList.count == 0 ? true : false
     }
+    
+    func currencyDeleted() {
+        aprint("currencyDeleted")
+        fetchCurrenciesHelper.stop()
+        fetchCurrenciesHelper.start()
+    }
+    
     var isReturningFromAddCurrency = false
     
     // MARK: - Outlets
@@ -21,6 +28,8 @@ class CurrencyVC: UIViewController {
     @IBOutlet weak var addCurrencyTxtBtn: UIButton!
     @IBOutlet weak var addCurrencyInfoLbl: UILabel!
     @IBOutlet weak var currencyListTVCContainer: UIView!
+
+    private var fetchCurrenciesHelper = FetchCurrenciesHelper()
     
     private var currencyListTVC: CurrencyListTVC? {
         return self.children.last as? CurrencyListTVC
@@ -37,6 +46,7 @@ class CurrencyVC: UIViewController {
                 self.currencyListTVC?.currencyList = currencies
                 self.currencyListTVC?.tableView.reloadData()
                 self.setCurrencyListTVCContainer()
+                self.fetchCurrenciesHelper.start()
             }
         }
         setCurrencyListTVCContainer()
@@ -48,7 +58,14 @@ class CurrencyVC: UIViewController {
         if isReturningFromAddCurrency {
             UserDefaultsHelper.shared.currencies = currencyListTVC?.currencyList
             isReturningFromAddCurrency = false
+            fetchCurrenciesHelper.start()
         }
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        
+        self.fetchCurrenciesHelper.stop()
     }
     
     // MARK: - Actions
@@ -72,7 +89,6 @@ class CurrencyVC: UIViewController {
     }
     
     private func fetchAndSetSavedCurrencies(  completion: @escaping ([CurrencyListVM]) -> ()) {
-        
         DispatchQueue.global().async {
             if let currencies = UserDefaultsHelper.shared.currencies {
                 completion(currencies)
@@ -90,7 +106,6 @@ extension CurrencyVC: AddCurrencyTVCDelegate {
         let secondCurrency = addCurrencyVMs.filter{ $0.currencyCode == currencies.second}.first?.currencyName ?? ""
         let currencyListVM = CurrencyListVM(firstCurrency: currencies.first, secondCurrency: currencies.second, firstCurrencyDetail: firstCurrency, secondCurrencyDetail: secondCurrency)
         currencyListTVC?.currencyList.append(currencyListVM)
-//        UserDefaultsHelper.shared.currencies = currencyListTVC?.currencyList
         currencyListTVC?.tableView.reloadData()
         setCurrencyListTVCContainer()
     }

@@ -793,6 +793,7 @@
 		8E238F7F239BDA4100C920D0 /* UIStoryboard+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E238F7E239BDA4100C920D0 /* UIStoryboard+Extension.swift */; };
 		8E84123123A50BE100DB999C /* UserDefaultsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E84123023A50BE100DB999C /* UserDefaultsHelper.swift */; };
 		8E84123323A5213200DB999C /* HelperFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E84123223A5213200DB999C /* HelperFunctions.swift */; };
+		8EFED29223A624B700BB74E7 /* FetchCurrenciesHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EFED29123A624B700BB74E7 /* FetchCurrenciesHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -1605,6 +1606,7 @@
 		8E238F7E239BDA4100C920D0 /* UIStoryboard+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStoryboard+Extension.swift"; sourceTree = "<group>"; };
 		8E84123023A50BE100DB999C /* UserDefaultsHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsHelper.swift; sourceTree = "<group>"; };
 		8E84123223A5213200DB999C /* HelperFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperFunctions.swift; sourceTree = "<group>"; };
+		8EFED29123A624B700BB74E7 /* FetchCurrenciesHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchCurrenciesHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -2519,6 +2521,7 @@
 			isa = PBXGroup;
 			children = (
 				8E238F7E239BDA4100C920D0 /* UIStoryboard+Extension.swift */,
+				8EFED29123A624B700BB74E7 /* FetchCurrenciesHelper.swift */,
 				8E1C2620239E8DFC00FA7CF0 /* JSONHelper.swift */,
 				8E84123023A50BE100DB999C /* UserDefaultsHelper.swift */,
 				8E84123223A5213200DB999C /* HelperFunctions.swift */,
@@ -3426,6 +3429,7 @@
 				8E84123123A50BE100DB999C /* UserDefaultsHelper.swift in Sources */,
 				8E238F7C239BD80A00C920D0 /* BaseTVC.swift in Sources */,
 				8E1C2623239F840F00FA7CF0 /* CurrencyListCell.swift in Sources */,
+				8EFED29223A624B700BB74E7 /* FetchCurrenciesHelper.swift in Sources */,
 				8E1C2024239E82A900FA7CF0 /* AddCurrency.swift in Sources */,
 				8E238F73239BD05200C920D0 /* CurrencyVC.swift in Sources */,
 				8E1CC2F1239E738600E3FF2E /* AddCurrencyVM.swift in Sources */,

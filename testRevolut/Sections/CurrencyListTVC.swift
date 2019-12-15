@@ -76,9 +76,9 @@ extension CurrencyListTVC {
                 UserDefaultsHelper.shared.removeCurrencies()
             } else {
                 UserDefaultsHelper.shared.currencies = currencyList
-                
             }
             tableView.deleteRows(at: [indexPath], with: .fade)
+            currencyVC?.currencyDeleted()
         }
     }
 }
