@@ -18,7 +18,11 @@ class CurrencyVC: UIViewController {
     func currencyDeleted() {
         aprint("currencyDeleted")
         fetchCurrenciesHelper.stop()
-        fetchCurrenciesHelper.start(currencyList: currencyListTVC?.currencyList)
+        
+        fetchCurrenciesHelper.start(currencyList: currencyListTVC?.currencyList) { (currResponse) in
+            self.currencyListTVC?.currencyList = CurrencyListVM.getCurrenciesWithRate(fromCurrencies: self.currencyListTVC!.currencyList, currenciesResponse: currResponse)
+            self.currencyListTVC?.tableView.reloadData()
+        }
     }
     
     var isReturningFromAddCurrency = false
@@ -28,7 +32,7 @@ class CurrencyVC: UIViewController {
     @IBOutlet weak var addCurrencyTxtBtn: UIButton!
     @IBOutlet weak var addCurrencyInfoLbl: UILabel!
     @IBOutlet weak var currencyListTVCContainer: UIView!
-
+    
     private var fetchCurrenciesHelper = FetchCurrenciesHelper()
     
     private var currencyListTVC: CurrencyListTVC? {
@@ -46,7 +50,11 @@ class CurrencyVC: UIViewController {
                 self.currencyListTVC?.currencyList = currencies
                 self.currencyListTVC?.tableView.reloadData()
                 self.setCurrencyListTVCContainer()
-                self.fetchCurrenciesHelper.start(currencyList: currencies)
+                
+                self.fetchCurrenciesHelper.start(currencyList: currencies) { (currResponse) in
+                    self.currencyListTVC?.currencyList = CurrencyListVM.getCurrenciesWithRate(fromCurrencies: currencies, currenciesResponse: currResponse)
+                    self.currencyListTVC?.tableView.reloadData()
+                }
             }
         }
         setCurrencyListTVCContainer()
@@ -58,7 +66,11 @@ class CurrencyVC: UIViewController {
         if isReturningFromAddCurrency {
             UserDefaultsHelper.shared.currencies = currencyListTVC?.currencyList
             isReturningFromAddCurrency = false
-            fetchCurrenciesHelper.start(currencyList: currencyListTVC?.currencyList)
+            
+            fetchCurrenciesHelper.start(currencyList: currencyListTVC?.currencyList) { (currResponse) in
+                self.currencyListTVC?.currencyList = CurrencyListVM.getCurrenciesWithRate(fromCurrencies: self.currencyListTVC!.currencyList, currenciesResponse: currResponse)
+                self.currencyListTVC?.tableView.reloadData()
+            }
         }
     }
     

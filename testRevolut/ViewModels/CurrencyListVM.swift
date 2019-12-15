@@ -30,6 +30,10 @@ struct CurrencyListVM: Codable {
     var secondCurrencyCellInfoTxt: String {
         return secondCurrencyDetail + "•" + secondCurrency
     }
+    
+    var firstSecondCombined: String {
+        return firstCurrency + secondCurrency
+    }
 }
 
 // TODO: - unit test
@@ -50,5 +54,16 @@ extension CurrencyListVM {
         }
         
         return addCurrencyVM
+    }
+    
+    static func getCurrenciesWithRate(fromCurrencies currencies: [CurrencyListVM], currenciesResponse: CurrenciesResponse) -> [CurrencyListVM] {
+        var currenciesLo = [CurrencyListVM]()
+        for var currency in currencies {
+            if let valueDouble = currenciesResponse.currenciesDictionary?[currency.firstSecondCombined] {
+                currency.value = String(valueDouble)
+            }
+            currenciesLo.append(currency)
+        }
+        return currenciesLo
     }
 }
