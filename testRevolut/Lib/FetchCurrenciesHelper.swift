@@ -13,7 +13,7 @@ class FetchCurrenciesHelper {
     // MARK: - API
     func start(currencyList: [CurrencyListVM]?, success: @escaping (CurrenciesResponse) -> Void) {
         guard let currencyList = currencyList else { return }
-        
+        fetchTimer?.invalidate()
         fetchTimer = Timer.scheduledTimer(withTimeInterval: retryTime, repeats: true, block: { (timer) in
             
             self.dataTask?.cancel()

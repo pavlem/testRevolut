@@ -65,6 +65,17 @@ extension CurrencyListTVC {
         return cell
     }
     
+    
+    override func tableView(_ tableView: UITableView, willBeginEditingRowAt indexPath: IndexPath) {
+        aprint("willBeginEditingRowAt")
+        currencyVC?.currencyStartedEditing()
+    }
+    
+    override func tableView(_ tableView: UITableView, didEndEditingRowAt indexPath: IndexPath?) {
+        aprint("didEndEditingRowAt")
+        currencyVC?.currencyFinishedEditing()
+    }
+    
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
     }
@@ -78,7 +89,6 @@ extension CurrencyListTVC {
                 UserDefaultsHelper.shared.currencies = currencyList
             }
             tableView.deleteRows(at: [indexPath], with: .fade)
-            currencyVC?.currencyDeleted()
         }
     }
 }

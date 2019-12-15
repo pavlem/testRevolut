@@ -15,21 +15,12 @@ class CurrencyVC: UIViewController {
         currencyListTVCContainer.isHidden = currencyListTVC?.currencyList.count == 0 ? true : false
     }
     
-    func currencyDeleted() {
-        fetchCurrenciesHelper.stop()
-        fetchCurrenciesHelper.start(currencyList: currencyListTVC?.currencyList) { (currResponse) in
-            self.updateCurrencyList(currResponse: currResponse)
-        }
-    }
-    
-    func currencyWillDelete() {
+    func currencyStartedEditing() {
         fetchCurrenciesHelper.stop()
     }
     
-    func currencyWillNotDelete() {
-        fetchCurrenciesHelper.start(currencyList: currencyListTVC?.currencyList) { (currResponse) in
-            self.updateCurrencyList(currResponse: currResponse)
-        }
+    func currencyFinishedEditing() {
+        startCurrenciesFetch()
     }
     
     var isReturningFromAddCurrency = false
@@ -57,10 +48,8 @@ class CurrencyVC: UIViewController {
                 self.currencyListTVC?.currencyList = currencies
                 self.currencyListTVC?.tableView.reloadData()
                 self.setCurrencyListTVCContainer()
-                
-                self.fetchCurrenciesHelper.start(currencyList: currencies) { (currResponse) in
-                    self.updateCurrencyList(currResponse: currResponse)
-                }
+                self.startCurrenciesFetch()
+
             }
         }
         setCurrencyListTVCContainer()
@@ -72,10 +61,7 @@ class CurrencyVC: UIViewController {
         if isReturningFromAddCurrency {
             UserDefaultsHelper.shared.currencies = currencyListTVC?.currencyList
             isReturningFromAddCurrency = false
-            
-            fetchCurrenciesHelper.start(currencyList: currencyListTVC?.currencyList) { (currResponse) in
-                self.updateCurrencyList(currResponse: currResponse)
-            }
+            startCurrenciesFetch()
         }
     }
     
@@ -97,6 +83,13 @@ class CurrencyVC: UIViewController {
     }
     
     // MARK: - Helper
+    private func startCurrenciesFetch() {
+        fetchCurrenciesHelper.start(currencyList: currencyListTVC?.currencyList) { [weak self] (currResponse) in
+            guard let `self` = self else { return }
+            self.updateCurrencyList(currResponse: currResponse)
+        }
+    }
+    
     private func updateCurrencyList(currResponse: CurrenciesResponse) {
         DispatchQueue.main.async {
             self.currencyListTVC?.currencyList = CurrencyListVM.getCurrenciesWithRate(fromCurrencies: self.currencyListTVC!.currencyList, currenciesResponse: currResponse)
