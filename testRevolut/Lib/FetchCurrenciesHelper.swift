@@ -17,7 +17,7 @@ class FetchCurrenciesHelper {
         fetchTimer = Timer.scheduledTimer(withTimeInterval: retryTime, repeats: true, block: { (timer) in
             
             self.dataTask?.cancel()
-            self.dataTask = self.sendRequest(self.urlString, allPairs: currencyList.map { $0.firstSecondCombined }) { (currencyPairsDictionary, err) in
+            self.dataTask = self.sendRequest(self.currencyParams, allCurrencyPairs: currencyList.map { $0.firstSecondCombined }) { (currencyPairsDictionary, err) in
                 
                 guard err == nil else { return }
                 guard let currencyPairsDictionary = currencyPairsDictionary else { return }
@@ -35,18 +35,22 @@ class FetchCurrenciesHelper {
     // MARK: - Properties
     // MARK: Constants
     private let retryTime = Double(1.0)
-    private let urlString = "https://europe-west1-revolut-230009.cloudfunctions.net/revolut-ios"
-    
+    private let currencyParams = URLParameters(scheme: "https", host: "europe-west1-revolut-230009.cloudfunctions.net", path: "/revolut-ios")
+
     // MARK: Vars
     private var fetchTimer: Timer?
     private var dataTask: URLSessionDataTask?
     
     // MARK: - Helper
-    private func sendRequest(_ url: String, allPairs: [String], completion: @escaping ([String: Double]?, Error?) -> Void) -> URLSessionDataTask {
+    private func sendRequest(_ urlParameters: URLParameters, allCurrencyPairs: [String], completion: @escaping ([String: Double]?, Error?) -> Void) -> URLSessionDataTask {
         
-        var components = URLComponents(string: url)!
+        var components = URLComponents()
+        components.scheme = urlParameters.scheme
+        components.host = urlParameters.host
+        components.path = urlParameters.path
+        
         var urlQueryItems = [URLQueryItem]()
-        for pair in allPairs {
+        for pair in allCurrencyPairs {
             urlQueryItems.append(URLQueryItem(name: "pairs", value: pair))
         }
         
@@ -55,10 +59,10 @@ class FetchCurrenciesHelper {
         let request = URLRequest(url: components.url!)
         
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
-            guard let data = data,                            // is there data
-                let response = response as? HTTPURLResponse,  // is there HTTP response
-                (200 ..< 300) ~= response.statusCode,         // is statusCode 2XX
-                error == nil else {                           // was there no error, otherwise ...
+            guard let data = data,
+                let response = response as? HTTPURLResponse,
+                (200 ..< 300) ~= response.statusCode,
+                error == nil else {
                     completion(nil, error)
                     return
             }
@@ -69,4 +73,10 @@ class FetchCurrenciesHelper {
         task.resume()
         return task
     }
+}
+
+struct URLParameters {
+    let scheme: String
+    let host: String
+    let path: String
 }
