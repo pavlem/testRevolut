@@ -18,7 +18,7 @@ class CurrencyVC: UIViewController {
     func currencyDeleted() {
         aprint("currencyDeleted")
         fetchCurrenciesHelper.stop()
-        fetchCurrenciesHelper.start()
+        fetchCurrenciesHelper.start(currencyList: currencyListTVC?.currencyList)
     }
     
     var isReturningFromAddCurrency = false
@@ -46,7 +46,7 @@ class CurrencyVC: UIViewController {
                 self.currencyListTVC?.currencyList = currencies
                 self.currencyListTVC?.tableView.reloadData()
                 self.setCurrencyListTVCContainer()
-                self.fetchCurrenciesHelper.start()
+                self.fetchCurrenciesHelper.start(currencyList: currencies)
             }
         }
         setCurrencyListTVCContainer()
@@ -58,7 +58,7 @@ class CurrencyVC: UIViewController {
         if isReturningFromAddCurrency {
             UserDefaultsHelper.shared.currencies = currencyListTVC?.currencyList
             isReturningFromAddCurrency = false
-            fetchCurrenciesHelper.start()
+            fetchCurrenciesHelper.start(currencyList: currencyListTVC?.currencyList)
         }
     }
     

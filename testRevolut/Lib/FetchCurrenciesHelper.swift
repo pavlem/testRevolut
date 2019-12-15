@@ -11,7 +11,15 @@ import Foundation
 struct FetchCurrenciesHelper {
     
     // MARK: - API
-    mutating func start() {
+    mutating func start(currencyList: [CurrencyListVM]?) {
+        
+        guard let currencyList = currencyList else {
+            aprint("Cannot start, no currencyList...")
+            return
+        }
+        
+        aprint("start(currencyList \(currencyList.count)")
+        
         fetchTimer = Timer.scheduledTimer(withTimeInterval: retryTime, repeats: true, block: { (timer) in
             
             let randomNumber = Int.random(in: 1...20)
