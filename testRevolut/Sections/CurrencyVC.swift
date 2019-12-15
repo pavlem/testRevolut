@@ -20,8 +20,13 @@ class CurrencyVC: UIViewController {
         fetchCurrenciesHelper.stop()
         
         fetchCurrenciesHelper.start(currencyList: currencyListTVC?.currencyList) { (currResponse) in
-            self.currencyListTVC?.currencyList = CurrencyListVM.getCurrenciesWithRate(fromCurrencies: self.currencyListTVC!.currencyList, currenciesResponse: currResponse)
-            self.currencyListTVC?.tableView.reloadData()
+            
+            DispatchQueue.main.async {
+                self.currencyListTVC?.currencyList = CurrencyListVM.getCurrenciesWithRate(fromCurrencies: self.currencyListTVC!.currencyList, currenciesResponse: currResponse)
+                self.currencyListTVC?.tableView.reloadData()
+                
+            }
+
         }
     }
     
@@ -52,8 +57,12 @@ class CurrencyVC: UIViewController {
                 self.setCurrencyListTVCContainer()
                 
                 self.fetchCurrenciesHelper.start(currencyList: currencies) { (currResponse) in
-                    self.currencyListTVC?.currencyList = CurrencyListVM.getCurrenciesWithRate(fromCurrencies: currencies, currenciesResponse: currResponse)
-                    self.currencyListTVC?.tableView.reloadData()
+                    
+                    DispatchQueue.main.async {
+                        self.currencyListTVC?.currencyList = CurrencyListVM.getCurrenciesWithRate(fromCurrencies: currencies, currenciesResponse: currResponse)
+                        self.currencyListTVC?.tableView.reloadData()
+                    }
+
                 }
             }
         }
@@ -68,8 +77,13 @@ class CurrencyVC: UIViewController {
             isReturningFromAddCurrency = false
             
             fetchCurrenciesHelper.start(currencyList: currencyListTVC?.currencyList) { (currResponse) in
-                self.currencyListTVC?.currencyList = CurrencyListVM.getCurrenciesWithRate(fromCurrencies: self.currencyListTVC!.currencyList, currenciesResponse: currResponse)
-                self.currencyListTVC?.tableView.reloadData()
+                
+                DispatchQueue.main.async {
+                    self.currencyListTVC?.currencyList = CurrencyListVM.getCurrenciesWithRate(fromCurrencies: self.currencyListTVC!.currencyList, currenciesResponse: currResponse)
+                    self.currencyListTVC?.tableView.reloadData()
+                    
+                }
+
             }
         }
     }
