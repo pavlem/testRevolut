@@ -16,17 +16,19 @@ class CurrencyVC: UIViewController {
     }
     
     func currencyDeleted() {
-        aprint("currencyDeleted")
         fetchCurrenciesHelper.stop()
-        
         fetchCurrenciesHelper.start(currencyList: currencyListTVC?.currencyList) { (currResponse) in
-            
-            DispatchQueue.main.async {
-                self.currencyListTVC?.currencyList = CurrencyListVM.getCurrenciesWithRate(fromCurrencies: self.currencyListTVC!.currencyList, currenciesResponse: currResponse)
-                self.currencyListTVC?.tableView.reloadData()
-                
-            }
-
+            self.updateCurrencyList(currResponse: currResponse)
+        }
+    }
+    
+    func currencyWillDelete() {
+        fetchCurrenciesHelper.stop()
+    }
+    
+    func currencyWillNotDelete() {
+        fetchCurrenciesHelper.start(currencyList: currencyListTVC?.currencyList) { (currResponse) in
+            self.updateCurrencyList(currResponse: currResponse)
         }
     }
     
@@ -57,12 +59,7 @@ class CurrencyVC: UIViewController {
                 self.setCurrencyListTVCContainer()
                 
                 self.fetchCurrenciesHelper.start(currencyList: currencies) { (currResponse) in
-                    
-                    DispatchQueue.main.async {
-                        self.currencyListTVC?.currencyList = CurrencyListVM.getCurrenciesWithRate(fromCurrencies: currencies, currenciesResponse: currResponse)
-                        self.currencyListTVC?.tableView.reloadData()
-                    }
-
+                    self.updateCurrencyList(currResponse: currResponse)
                 }
             }
         }
@@ -77,13 +74,7 @@ class CurrencyVC: UIViewController {
             isReturningFromAddCurrency = false
             
             fetchCurrenciesHelper.start(currencyList: currencyListTVC?.currencyList) { (currResponse) in
-                
-                DispatchQueue.main.async {
-                    self.currencyListTVC?.currencyList = CurrencyListVM.getCurrenciesWithRate(fromCurrencies: self.currencyListTVC!.currencyList, currenciesResponse: currResponse)
-                    self.currencyListTVC?.tableView.reloadData()
-                    
-                }
-
+                self.updateCurrencyList(currResponse: currResponse)
             }
         }
     }
@@ -106,6 +97,13 @@ class CurrencyVC: UIViewController {
     }
     
     // MARK: - Helper
+    private func updateCurrencyList(currResponse: CurrenciesResponse) {
+        DispatchQueue.main.async {
+            self.currencyListTVC?.currencyList = CurrencyListVM.getCurrenciesWithRate(fromCurrencies: self.currencyListTVC!.currencyList, currenciesResponse: currResponse)
+            self.currencyListTVC?.tableView.reloadData()
+        }
+    }
+    
     private func setUI() {
         addCurrencyBtn.setImage(UIImage.addBigButon, for: .normal)
         addCurrencyTxtBtn.setTitle(String.addBtnText, for: .normal)
