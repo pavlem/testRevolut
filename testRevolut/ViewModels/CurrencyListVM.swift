@@ -36,7 +36,6 @@ struct CurrencyListVM: Codable {
     }
 }
 
-// TODO: - unit test
 extension CurrencyListVM {
     static func getAddCurrencyVM(from addCurrencyVM: AddCurrencyVM, allSelectedCurrencies: [CurrencyListVM]?, firstSelectedCurrency: String?) -> AddCurrencyVM {
         
@@ -55,9 +54,7 @@ extension CurrencyListVM {
         
         return addCurrencyVM
     }
-    
-    
-    //TODO: - unit test
+
     static func getCurrenciesWithRate(fromCurrencies currencies: [CurrencyListVM], currenciesResponse: CurrenciesResponse) -> [CurrencyListVM] {
         var currenciesLocal = [CurrencyListVM]()
         for var currency in currencies {
