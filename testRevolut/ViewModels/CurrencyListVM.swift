@@ -59,13 +59,13 @@ extension CurrencyListVM {
     
     //TODO: - unit test
     static func getCurrenciesWithRate(fromCurrencies currencies: [CurrencyListVM], currenciesResponse: CurrenciesResponse) -> [CurrencyListVM] {
-        var currenciesLo = [CurrencyListVM]()
+        var currenciesLocal = [CurrencyListVM]()
         for var currency in currencies {
             if let valueDouble = currenciesResponse.currenciesDictionary?[currency.firstSecondCombined] {
                 currency.value = String(valueDouble)
             }
-            currenciesLo.append(currency)
+            currenciesLocal.append(currency)
         }
-        return currenciesLo
+        return currenciesLocal
     }
 }
