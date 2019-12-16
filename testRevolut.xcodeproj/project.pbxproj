@@ -2529,7 +2529,6 @@
 			children = (
 				8EFED29323A62C7A00BB74E7 /* Net */,
 				8E238F7E239BDA4100C920D0 /* UIStoryboard+Extension.swift */,
-				8EFED29123A624B700BB74E7 /* FetchCurrenciesHelper.swift */,
 				8E1C2620239E8DFC00FA7CF0 /* JSONHelper.swift */,
 				8E84123023A50BE100DB999C /* UserDefaultsHelper.swift */,
 				8E84123223A5213200DB999C /* HelperFunctions.swift */,
@@ -2541,6 +2540,7 @@
 		8EFED29323A62C7A00BB74E7 /* Net */ = {
 			isa = PBXGroup;
 			children = (
+				8EFED29123A624B700BB74E7 /* FetchCurrenciesHelper.swift */,
 				8E36FDE323A6321E00221367 /* CurrenciesResponce.swift */,
 			);
 			path = Net;

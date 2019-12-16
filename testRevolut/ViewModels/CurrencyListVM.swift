@@ -56,6 +56,8 @@ extension CurrencyListVM {
         return addCurrencyVM
     }
     
+    
+    //TODO: - unit test
     static func getCurrenciesWithRate(fromCurrencies currencies: [CurrencyListVM], currenciesResponse: CurrenciesResponse) -> [CurrencyListVM] {
         var currenciesLo = [CurrencyListVM]()
         for var currency in currencies {

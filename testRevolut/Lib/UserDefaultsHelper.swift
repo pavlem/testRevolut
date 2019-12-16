@@ -16,7 +16,6 @@ class UserDefaultsHelper {
         get {
             if let data = UserDefaults.standard.object(forKey: currenciesKey) as? Data {
                 let myStruct = try! JSONDecoder().decode([CurrencyListVM].self, from: data)
-//                print(myStruct)
                 return myStruct
             }
             return nil
@@ -24,13 +23,11 @@ class UserDefaultsHelper {
         set {
             let encoded = try! JSONEncoder().encode(newValue)
             UserDefaults.standard.set(encoded, forKey: currenciesKey)
-            aprint(newValue?.count ?? 0)
         }
     }
     
     func removeCurrencies() {
         UserDefaults.standard.removeObject(forKey: currenciesKey)
-        aprint("removeCurrencies")
     }
     
     private let currenciesKey = "currencies"

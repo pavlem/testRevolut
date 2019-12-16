@@ -65,14 +65,11 @@ extension CurrencyListTVC {
         return cell
     }
     
-    
     override func tableView(_ tableView: UITableView, willBeginEditingRowAt indexPath: IndexPath) {
-        aprint("willBeginEditingRowAt")
         currencyVC?.currencyStartedEditing()
     }
     
     override func tableView(_ tableView: UITableView, didEndEditingRowAt indexPath: IndexPath?) {
-        aprint("didEndEditingRowAt")
         currencyVC?.currencyFinishedEditing()
     }
     
