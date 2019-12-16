@@ -77,4 +77,16 @@ class testRevolutTests: XCTestCase {
         XCTAssert(addCurrencyVM13.currencyName == "Australian Dollar", "🍊🍊, testGetAddCurrencyVM not ok")
         XCTAssert(addCurrencyVM13.isEnabled == true, "🍊🍊, testGetAddCurrencyVM not ok")        
     }
+    
+    func testFetchCurrencies() {
+        let _ = MOCHelper.fetchMOCCurrencies { (currResponse) in
+            XCTAssert(currResponse.currenciesDictionary?.count == 5, "🍊🍊, testFetchCurrencies not ok")
+            
+            XCTAssert(currResponse.currenciesDictionary?["GBPUSD"] == 1.3024, "🍊🍊, testFetchCurrencies not ok")
+            XCTAssert(currResponse.currenciesDictionary?["GBPEUR"] == 1.1551, "🍊🍊, testFetchCurrencies not ok")
+            XCTAssert(currResponse.currenciesDictionary?["AUDBGN"] == 1.2472, "🍊🍊, testFetchCurrencies not ok")
+            XCTAssert(currResponse.currenciesDictionary?["AUDBRL"] == 2.6619, "🍊🍊, testFetchCurrencies not ok")
+            XCTAssert(currResponse.currenciesDictionary?["USDGBP"] == 0.7839, "🍊🍊, testFetchCurrencies not ok")
+        }
+    }
 }

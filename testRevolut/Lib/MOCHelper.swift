@@ -1,9 +1,9 @@
 //
-//  MOCHelper.swift
-//  ScanAndGo
+//  HelperFunctions.swift
+//  testRevolut
 //
-//  Created by Pavle Mijatovic on 7/25/19.
-//  Copyright © 2019 Salling Group. All rights reserved.
+//  Created by Pavle Mijatovic on 14/12/2019.
+//  Copyright © 2019 Pavle Mijatovic. All rights reserved.
 //
 
 import Foundation
@@ -33,8 +33,6 @@ extension MOCHelper {
                         let json = try JSONSerialization.jsonObject(with: jsonData, options: []) as? [String : Double]
                         let currenciesResponse = CurrenciesResponse(currenciesDictionary: json)
                         completion(currenciesResponse)
-//                        let curr = try JSONDecoder().decode([Double].self, from: jsonData)
-//                        completion(curr)
                     }
                     catch _ as NSError {
                         fatalError("Couldn't load data from \(filePath)")
